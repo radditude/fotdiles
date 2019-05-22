@@ -1,0 +1,24 @@
+#!/bin/bash
+
+TIMESHIFT=$2
+shift
+
+function usage {
+  echo " Show completed tasks on a day:"
+  echo "   lately -1d"
+	echo "     shows tasks completed yesterday"
+	echo "   lately today"
+	echo "     shows tasks completed so far today"
+  echo ""
+  exit
+}
+
+[ "$TIMESHIFT" = "usage" ] && usage
+
+if [[ "$TIMESHIFT" = "today" ]]; then
+	DATE=$(date +%F)
+else
+	DATE=$(date -v $TIMESHIFT +%F)
+fi
+
+"$TODO_SH" command listall "x $DATE"

@@ -1,0 +1,55 @@
+# Path to this dotfiles installation
+export DOTFILES=$HOME/.fotdiles
+
+##################
+# Oh-my-zsh config
+##################
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="my"
+HIST_STAMPS="mm/dd/yyyy"
+ZSH_CUSTOM=$DOTFILES/zsh
+plugins=(
+  git
+  mix-fast
+)
+source $ZSH/oh-my-zsh.sh
+
+
+##################
+# Local secrets config for things that need to stay out of git
+##################
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# Android PATH config
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+else
+  export EDITOR='code'
+fi
+
+# handy aliases
+alias android-emulate="$HOME/Library/Android/sdk/tools/emulator"
+alias ngrok=/usr/local/bin/ngrok
+alias t="todo.sh -d $HOME/.todo.cfg"
+alias fixslack="$HOME/tools.sh $@"
+
+# quick nav
+alias rev="cd $HOME/src/rev"
+alias src="cd $HOME/src"
+alias todo="cd $HOME/Dropbox/todo"
+alias notes="cd $HOME/Dropbox/notes"
+
+# asdf things
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
