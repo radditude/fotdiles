@@ -49,7 +49,7 @@ while test $# -gt 0; do
 done
 
 
-$SCRIPTS_ROOT/link $DOTFILES_ROOT
+$SCRIPTS_ROOT/link
 
 # instally things go here
 

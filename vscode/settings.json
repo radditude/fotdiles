@@ -1,0 +1,22 @@
+{
+	"editor.fontFamily": "Fira Code, Menlo, monospace",
+	"editor.fontLigatures": true,
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"git.checkoutType": "local",
+	"git.countBadge": "tracked",
+	"git.decorations.enabled": false,
+	"prettier.eslintIntegration": true,
+	"workbench.colorTheme": "Oceanic Plus",
+	"workbench.iconTheme": "file-icons",
+	"workbench.colorCustomizations": {
+			"activityBarBadge.background": "#6699CC",
+			"badge.background": "#6699CC",
+			"editorError.foreground": "#EC5F67",
+	"editorWarning.foreground": "#EC5F67"
+	},
+	"window.zoomLevel": 0,
+	"breadcrumbs.enabled": true
+}
