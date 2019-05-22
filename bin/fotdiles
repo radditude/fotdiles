@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+################
+### FOTDILES ###
+################
+
+# This script is responsible for the following:
+#
+# - Installing things:
+#   - symlinking anything with a `.symlink` extension to `$HOME`
+#   - running anything called `install.sh` to install or set up software
+# - Updating things:
+#   - safe to run multiple times
+# 
+
+set -e
+
+echo ''
+
+DOTFILES_ROOT=$(pwd -P)
+SCRIPTS_ROOT=$DOTFILES_ROOT/fotdiles
+
+displayUsageAndExit() {
+	echo "fotdiles -- namage your fotdiles"
+	echo ""
+	echo "Usage: fotdiles [options]"
+	echo ""
+	echo "Options:"
+	echo "  -e, --edit    Open dotfiles directory in editor"
+	echo "  -h, --help    Show this help message"
+	exit
+}
+
+while test $# -gt 0; do
+	case "$1" in
+		"-h"|"--help")
+			displayUsageAndExit
+			;;
+		"-e"|"--edit")
+			exec "$EDITOR" "$DOTFILES_ROOT"
+			exit
+			;;
+		*)
+			echo "Invalid option: $1"
+			displayUsageAndExit
+			;;
+	esac
+	shift
+done
+
+
+$SCRIPTS_ROOT/link $DOTFILES_ROOT
+
+# instally things go here
+
+# git config stuff goes here
