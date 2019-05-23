@@ -17,8 +17,7 @@ set -e
 
 echo ''
 
-DOTFILES_ROOT=$(pwd -P)
-SCRIPTS_ROOT=$DOTFILES_ROOT/fotdiles
+SCRIPTS=$DOTFILES/fotdiles
 
 displayUsageAndExit() {
 	echo "fotdiles -- namage your fotdiles"
@@ -37,7 +36,7 @@ while test $# -gt 0; do
 			displayUsageAndExit
 			;;
 		"-e"|"--edit")
-			exec "$EDITOR" "$DOTFILES_ROOT"
+			exec "$EDITOR" "$DOTFILES"
 			exit
 			;;
 		*)
@@ -48,8 +47,7 @@ while test $# -gt 0; do
 	shift
 done
 
-
-$SCRIPTS_ROOT/link
+$SCRIPTS/link
 
 # instally things go here
 
