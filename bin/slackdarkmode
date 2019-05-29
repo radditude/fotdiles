@@ -52,8 +52,8 @@ undo () {
 
 restart_slack () {
 	info "restarting Slack..."
-  killall Slack &> /dev/null
-	open /Applications/Slack.app
+  # killall Slack &> /dev/null
+	# open /Applications/Slack.app
 }
 
 fixslack () {

@@ -36,12 +36,15 @@ alias ngrok=/usr/local/bin/ngrok
 alias t="todo.sh -d $HOME/.todo.cfg"
 alias fixslack="$HOME/tools.sh $@"
 
+
 # quick nav
 alias rev="cd $HOME/src/rev"
 alias src="cd $HOME/src"
 alias todo="cd $HOME/Dropbox/todo"
 alias notes="cd $HOME/Dropbox/notes"
 alias fot="cd $DOTFILES"
+
+export SUDO_PROMPT='     --> Password: '
 
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"

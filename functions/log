@@ -7,7 +7,6 @@ info () {
 user_prompt () {
   echo ''
   printf "\r  \033[01;34m?¿ \033[00;34m-->\033[0m $1\n"
-  echo ''
 }
 
 success () {
