@@ -41,6 +41,10 @@ alias rev="cd $HOME/src/rev"
 alias src="cd $HOME/src"
 alias todo="cd $HOME/Dropbox/todo"
 alias notes="cd $HOME/Dropbox/notes"
+alias fot="cd $DOTFILES"
+
+# add $DOTFILES/bin to $PATH so everything there is executable
+export PATH="$DOTFILES/bin:$PATH"
 
 # asdf things
 . $HOME/.asdf/asdf.sh
