@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+DOTFILES=${1:-"$HOME/.fotdiles"}
 source $DOTFILES/functions/log
 
 link_file () {

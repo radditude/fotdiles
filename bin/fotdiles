@@ -46,7 +46,7 @@ while test $# -gt 0; do
 	shift
 done
 
-$SCRIPTS/link
+$SCRIPTS/link $DOTFILES
 
 # instally things go here
 

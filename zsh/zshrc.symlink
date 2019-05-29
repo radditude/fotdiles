@@ -10,7 +10,6 @@ HIST_STAMPS="mm/dd/yyyy"
 ZSH_CUSTOM=$DOTFILES/zsh
 plugins=(
   git
-  mix-fast
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -65,7 +64,7 @@ fi
 
 # configure deis stuff only if we have deis installed
 # TODO: figure out how to keep these profiles somewhere better
-if [ -d "$HOME/.deis"]
+if [ -d "$HOME/.deis" ]
 then
   alias d-t="DEIS_PROFILE=tss deis"
   alias d-ts="DEIS_PROFILE=tsstage deis"
@@ -74,7 +73,6 @@ fi
 
 # asdf things
 . $(brew --prefix asdf)/asdf.sh
-. $(brew --prefix asdf)/completions/asdf.sh
 
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
