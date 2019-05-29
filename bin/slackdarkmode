@@ -1,19 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e
+
+source $DOTFILES/functions/log
 
 usage () {
 		echo ""
-		echo "  Enable dark mode or apply updated CSS overrides:"
-		echo "    $0"
-		echo "  Revert to light mode:"
-		echo "    $0 undo"
-		echo "  See this message:"
-		echo "    $0 help"
-		echo "    $0 usage"
+		success "USAGE:"
+		info "Enable dark mode or apply updated CSS overrides:"
+		info "  slackdarkmode"
+		info "Revert to light mode:"
+		info "  slackdarkmode undo"
+		info "See this message:"
+		info "  slackdarkmode help | slackdarkmode usage"
 		echo ""
 		exit 
 }
-
-source $DOTFILES/functions/log
 
 FLAG="slackdarkmodehack"
 
