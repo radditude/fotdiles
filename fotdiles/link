@@ -3,27 +3,35 @@
 source $DOTFILES/functions/log
 
 link_file () {
-  local src=$1 dst=$2
+  local source_dotfile=$1
+  local destination=$2
 
+  # reset local flags each time the function runs
+  # while $overwrite_all, $backup_all, and $skip_all remain global
   local overwrite= backup= skip=
   local action=
 
-  if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
+  # if $destination is a file, directory, or symlink
+  if [ -f "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]
   then
 
+    # and we don't have global overwrite, global backup, or global skip enabled already
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
 
-      local currentSrc="$(readlink $dst)"
+      # if $destination is a symlink, get what the symlink points to
+      local current_source_dotfile="$(readlink $destination)"
 
-      if [ "$currentSrc" == "$src" ]
+      # if $destination is already a symlink pointing to $source_dotfile, skip it
+      if [ "$current_source_dotfile" == "$source_dotfile" ]
       then
 
         skip=true;
 
+      # if it's a real file/directory, decide whether to skip it, overwrite it, or back it up
       else
-
-        user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
+        
+        user_prompt "File already exists: $destination ($(basename "$source_dotfile")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
 
@@ -48,32 +56,33 @@ link_file () {
 
     fi
 
+    # set local flags to equal global flags, if enabled
     overwrite=${overwrite:-$overwrite_all}
     backup=${backup:-$backup_all}
     skip=${skip:-$skip_all}
 
     if [ "$overwrite" == "true" ]
     then
-      rm -rf "$dst"
-      success "removed $dst"
+      rm -rf "$destination"
+      info "removed $destination"
     fi
 
     if [ "$backup" == "true" ]
     then
-      mv "$dst" "${dst}.backup"
-      success "moved $dst to ${dst}.backup"
+      mv "$destination" "${destination}.backup"
+      info "moved $destination to ${destination}.backup"
     fi
 
     if [ "$skip" == "true" ]
     then
-      success "skipped $src"
+      info "skipped $source_dotfile"
     fi
   fi
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
-    ln -s "$1" "$2"
-    success "linked $1 to $2"
+    ln -s "$source_dotfile" "$destination"
+    info "linked $source_dotfile to $destination"
   fi
 }
 
@@ -82,11 +91,14 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  # find everything in dotfiles directory with a `.symlink` extension
+  # and link it up in $HOME
+  for source_dotfile in $(find -H "$DOTFILES" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    destination="$HOME/.$(basename "${source_dotfile%.*}")"
+    link_file "$source_dotfile" "$destination"
   done
 }
 
 install_dotfiles
+success "finished!"
