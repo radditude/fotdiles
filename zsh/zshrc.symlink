@@ -33,13 +33,13 @@ fi
 
 # handy aliases
 alias ngrok=/usr/local/bin/ngrok
+alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
-alias fixslack="$HOME/tools.sh $@"
-
 
 # quick nav
 alias rev="cd $HOME/src/rev"
 alias src="cd $HOME/src"
+alias current="cd $HOME/src/rev/tss"
 alias todo="cd $HOME/Dropbox/todo"
 alias notes="cd $HOME/Dropbox/notes"
 alias fot="cd $DOTFILES"
@@ -49,8 +49,32 @@ export SUDO_PROMPT='     --> Password: '
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"
 
-# asdf things
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# configure android only if we have android stuff installed
+if [ -d "$HOME/Library/Android" ]
+then
+  # PATH config for Android
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_HOME/emulator
+  export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/tools/bin
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+  # Android aliases
+  alias emulator-default="emulator @Pixel_XL_API_28"
+fi
+
+# configure deis stuff only if we have deis installed
+# TODO: figure out how to keep these profiles somewhere better
+if [ -d "$HOME/.deis"]
+then
+  alias d-t="DEIS_PROFILE=tss deis"
+  alias d-ts="DEIS_PROFILE=tsstage deis"
+  alias d="DEIS_PROFILE=prod deis"
+fi
+
+# asdf things
+. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/completions/asdf.sh
+
+# iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
