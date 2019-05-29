@@ -101,6 +101,5 @@ install_dotfiles () {
   done
 }
 
-echo ""
 install_dotfiles
 success "all dotfiles installed!"

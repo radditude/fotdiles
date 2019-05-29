@@ -18,12 +18,15 @@ set -e
 DOTFILES=${DOTFILES:-"$HOME/.fotdiles"}
 SCRIPTS=$DOTFILES/fotdiles
 
+source $DOTFILES/functions/log
+
 displayUsageAndExit() {
 	echo "fotdiles -- namage your fotdiles"
 	echo ""
 	echo "Usage: fotdiles [options]"
 	echo ""
 	echo "Options:"
+	echo "  none          Symlink files and install software"
 	echo "  -e, --edit    Open dotfiles directory in editor"
 	echo "  -h, --help    Show this help message"
 	exit
@@ -46,8 +49,15 @@ while test $# -gt 0; do
 	shift
 done
 
+info "pulling latest from Github"
+cd "$DOTFILES"
+git pull > /dev/null
+success "fotdiles installation updated"
+
 $SCRIPTS/link $DOTFILES
 
 # instally things go here
 
 # git config stuff goes here
+
+success "You are fully installed and up to date."
