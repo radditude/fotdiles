@@ -1,4 +1,4 @@
-nodejs 9.11.2
-elixir 1.7.4
-ruby 2.5.3
-erlang 21.0
+nodejs 12.2.0
+ruby 2.3.7
+elixir 1.8.1-otp-21
+erlang 21.3.7
