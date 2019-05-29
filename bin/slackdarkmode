@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+usage () {
+		echo ""
+		echo "  Enable dark mode or apply updated CSS overrides:"
+		echo "    $0"
+		echo "  Revert to light mode:"
+		echo "    $0 undo"
+		echo "  See this message:"
+		echo "    $0 help"
+		echo "    $0 usage"
+		echo ""
+		exit 
+}
+
+source $DOTFILES/functions/log
+
+FLAG="slackdarkmodehack"
+
+DIR="/Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static"
+FILE="$DIR/ssb-interop.js"
+
+CSS_OVERRIDES='code, pre { background-color: #535353; color: #85c5ff; }
+        .c-mrkdwn__pre, .c-mrkdwn__quote, pre { background: #535353 !important; background-color: #535353 !important; }
+        #client_body:not(.onboarding):not(.feature_global_nav_layout):before {display: none;}
+        .p-message_input_field, .p-message_input_plus { color: #e6e6e6 !important; background: padding-box #545454 !important; border-color: #424242 !important;}
+        .ql-placeholder, .p-threads_flexpane__header_channel_name { color: #e6e6e6 !important; }
+        .c-message_kit__text { color: #FFF; }
+        .c-message_kit__background, .c-message_kit__message, .p-threads_view__default_background,
+        .p_threads_view_load_newer_button--with-gutter, .p_threads_view_load_older_button--with-gutter,
+        .p-threads_view {background-color: #222;},
+        .c-channel_name__text {color: #FFF}'
+
+SLACKDARKMODE="document.addEventListener('DOMContentLoaded', function darkMode() {
+		$.ajax({
+			url:
+				'https://cdn.jsdelivr.net/gh/laCour/slack-night-mode/css/raw/black.css',
+			success: function success(css) {
+				let overrides = \`$CSS_OVERRIDES\`;
+				\$('<style></style>').appendTo('head').html(css + overrides);
+			},
+		});
+	}); //$FLAG"
+
+append_snippet () {
+	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $FILE > /dev/null
+}
+
+undo () {
+	sudo sed -i "" "/$FLAG/d" $FILE
+}
+
+restart_slack () {
+	info "restarting Slack..."
+  killall Slack &> /dev/null
+	open /Applications/Slack.app
+}
+
+fixslack () {
+	if [[ "$1" == "undo" ]]
+	then
+		user_prompt "disabling dark mode... you may need to enter your password."
+		undo
+		restart_slack
+		success "slack dark mode disabled!"
+		exit
+	elif [[ "$1" == "usage" || "$1" == "help" ]]
+	then
+		usage
+	fi
+
+  user_prompt "enabling dark mode... you may need to enter your password."
+
+  if grep -q "//$FLAG" $FILE
+	then
+		undo
+	fi
+
+	append_snippet
+  restart_slack
+  success "your slack has been endarkened!"
+}
+
+fixslack "$@"
