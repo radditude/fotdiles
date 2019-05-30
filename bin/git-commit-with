@@ -1,0 +1,63 @@
+#!/usr/bin/env bash -e
+
+INFOSHEET=$DOTFILES/secret/fuzzy_match_commit
+
+source $DOTFILES/functions/log
+
+usage() {
+  echo ""
+  success "Add co-authors to a commit in Github"
+  info "USAGE:"
+  info "  git-commit-with <person> <message> <opts>"
+  info "    tries to find the given person's info in saved info"
+  info "      Example:"
+  info "      git-commit-with emily \"fix the bug\""
+  info "      git-commit-with emily,bryan \"really fix the bug\" --amend"
+  echo ""
+  exit
+}
+
+edit_coauthors() {
+  info "opening co-author info file in editor.."
+  exec "$EDITOR" "$INFOSHEET"
+  exit
+}
+
+git-commit-with () {
+  COAUTHOR=$1
+  MESSAGE=$2
+  OPTS=$3
+
+  info "finding co-author info"
+
+  full_info="$(fuzzy_match_commit $COAUTHOR)"
+  info "$full_info"
+  if [[ "$full_info" == "No match!" ]]; then
+    fail "Couldn't match $COAUTHOR - you may need to add their info in \`secret/fuzzy_match_commit\`"
+    exit
+  else
+    COAUTHOR="Co-authored-by: $full_info"
+  fi
+
+  FULL_BODY=$(echo -e "$MESSAGE\n\n$COAUTHOR")
+
+  git commit $OPTS -m $FULL_BODY
+}
+
+if [[ ! -f "$INFOSHEET" ]]; then
+  info "no co-author info found! Opening file.."
+  touch $INFOSHEET
+  edit_coauthors
+fi
+
+if [[ "$1" == "edit" || "$1" == "open" ]]; then
+  edit_coauthors
+fi
+
+if [[ "$1" == "help" || "$1" == "usage" || ! "$1" || ! "$2" ]]; then
+  usage
+fi
+
+source $INFOSHEET
+
+git-commit-with "$@"
