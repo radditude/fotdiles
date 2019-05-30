@@ -1,5 +1,6 @@
 #!/usr/bin/env bash -e
 
+# TODO: this script is clunky af and should probably be a hub feature anyway
 INFOSHEET=$DOTFILES/secret/fuzzy_match_commit
 
 source $DOTFILES/functions/log
