@@ -1,22 +1,62 @@
 {
-	"editor.fontFamily": "Fira Code, Menlo, monospace",
-	"editor.fontLigatures": true,
+  "editor.fontFamily": "Fira Code, Menlo, monospace",
+  "editor.fontLigatures": true,
 	"editor.tabSize": 2,
 	"editor.insertSpaces": false,
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": true,
-	"git.checkoutType": "local",
-	"git.countBadge": "tracked",
-	"git.decorations.enabled": false,
+	"eslint.run": "onSave",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "git.checkoutType": "local",
+  "git.countBadge": "tracked",
+  "git.decorations.enabled": false,
+  "prettier.arrowParens": "always",
+	"prettier.bracketSpacing": false,
 	"prettier.eslintIntegration": true,
-	"workbench.colorTheme": "Oceanic Plus",
-	"workbench.iconTheme": "file-icons",
-	"workbench.colorCustomizations": {
-			"activityBarBadge.background": "#6699CC",
-			"badge.background": "#6699CC",
-			"editorError.foreground": "#EC5F67",
-	"editorWarning.foreground": "#EC5F67"
-	},
-	"window.zoomLevel": 0,
-	"breadcrumbs.enabled": true
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.external.osxExec": "iTerm",
+  "workbench.colorTheme": "Oceanic Plus",
+  "workbench.iconTheme": "file-icons",
+  "workbench.colorCustomizations": {
+    "activityBarBadge.background": "#6699CC",
+    "badge.background": "#6699CC",
+    "editorError.foreground": "#EC5F67",
+    "editorWarning.foreground": "#EC5F67"
+  },
+  "window.zoomLevel": 0,
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.views.repositories.files.layout": "tree",
+  "gitlens.views.fileHistory.enabled": false,
+  "gitlens.views.lineHistory.enabled": false,
+  "[yaml]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "editor.lineHeight": 20,
+  "editor.wordWrap": "off",
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn"
+  },
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": false,
+  "breadcrumbs.enabled": true,
+  "liveshare.featureSet": "insiders",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "search-node-modules.path": "node_modules",
+  "elixirLS.fetchDeps": false,
+  "files.associations": {
+    "*.leex": "Eex",
+    "*.symlink": "shellscript"
+  },
+  "javascript.suggest.autoImports": false,
+  "elixirLinter.useStrict": true
 }

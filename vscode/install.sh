@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-DOTFILES_ROOT=$(pwd -P)
-
 setup() {
-	ln -s $DOTFILES_ROOT/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+	ORIGINAL_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
+	rm "$ORIGINAL_SETTINGS"
+	ln -s $DOTFILES/vscode/settings.json "$ORIGINAL_SETTINGS"
 }
 
 setup
