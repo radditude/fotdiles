@@ -21,23 +21,23 @@ SCRIPTS=$DOTFILES/fotdiles
 source $DOTFILES/functions/log
 
 displayUsageAndExit() {
-	echo "fotdiles -- namage your fotdiles"
 	echo ""
-	echo "Usage: fotdiles [options]"
+	success "fotdiles -- namage your fotdiles"
+	info "Usage: fotdiles [options]"
 	echo ""
-	echo "Options:"
-	echo "  none          Symlink files and install software"
-	echo "  -e, --edit    Open dotfiles directory in editor"
-	echo "  -h, --help    Show this help message"
+	info "Options:"
+	info "  none          Symlink files and install software"
+	info "  -e, --edit    Open dotfiles directory in editor"
+	info "  -h, --help    Show this help message"
 	exit
 }
 
 while test $# -gt 0; do
 	case "$1" in
-		"-h"|"--help")
+		"-h"|"--help"|"help")
 			displayUsageAndExit
 			;;
-		"-e"|"--edit")
+		"-e"|"--edit"|"edit")
 			exec "$EDITOR" "$DOTFILES"
 			exit
 			;;

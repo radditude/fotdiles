@@ -7,6 +7,7 @@ source $DOTFILES/functions/fuzzy_match
 
 usage() {
   echo ""
+  success "Generate and manage prefilled Airtable urls for time tracking"
   info "USAGE:"
   info "  tracktime <day> <project> <hours> [category] [notes]"
   info "    generates a prefilled URL for a single project and day"

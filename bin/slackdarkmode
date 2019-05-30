@@ -4,7 +4,8 @@ source $DOTFILES/functions/log
 
 usage () {
 		echo ""
-		success "USAGE:"
+		success "Dark mode for the MacOS desktop Slack client"
+		info "USAGE:"
 		info "Enable dark mode or apply updated CSS overrides:"
 		info "  slackdarkmode"
 		info "Revert to light mode:"
