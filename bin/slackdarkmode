@@ -6,12 +6,12 @@ usage () {
 		echo ""
 		success "Dark mode for the MacOS desktop Slack client"
 		info "USAGE:"
-		info "Enable dark mode or apply updated CSS overrides:"
-		info "  slackdarkmode"
-		info "Revert to light mode:"
-		info "  slackdarkmode undo"
-		info "See this message:"
-		info "  slackdarkmode help | slackdarkmode usage"
+		info "  $(basename $0)"
+		info "    - enable dark mode or apply updated CSS overrides"
+		info "  $(basename $0) undo"
+		info "    - revert to light mode"
+		info "  $(basename $0) [help|usage]"
+		info "    - this message"
 		echo ""
 		exit 
 }

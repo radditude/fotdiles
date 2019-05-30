@@ -23,12 +23,17 @@ source $DOTFILES/functions/log
 displayUsageAndExit() {
 	echo ""
 	success "fotdiles -- namage your fotdiles"
-	info "Usage: fotdiles [options]"
+	info "USAGE:"
+	info "  $(basename $0) [options]"
 	echo ""
-	info "Options:"
-	info "  none          Symlink files and install software"
-	info "  -e, --edit    Open dotfiles directory in editor"
-	info "  -h, --help    Show this help message"
+	info "  Options:"
+	info "    $(basename $0)"
+	info "      - symlink files and install software"
+	info "    $(basename $0) [-e|--edit]"
+	info "      - open dotfiles directory in editor"
+	info "    $(basename $0) [-h|--help]"
+	info "      - show this help message"
+	echo ""
 	exit
 }
 
