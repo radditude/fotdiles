@@ -4,9 +4,6 @@ action=$1
 shift
 query=${@:1}
 
-echo $action
-echo $query
-
 NOTES_DIR=${NOTES_DIR:-"$HOME/Dropbox/notes"}
 
 source $DOTFILES/functions/log
@@ -43,11 +40,11 @@ archiveold () {
 	
 		if [[ ! "$filename" == "$today" ]]; then
 			mv "$NOTES_DIR/$filename" "$NOTES_DIR/archive/$filename"
-			echo "$filename archived"
+			info "$filename archived"
 		fi
 	done
 
-	info "all expired daily notes archived"
+	success "all expired daily notes archived"
 }
 
 archive () {
@@ -60,7 +57,7 @@ archive () {
 
 	filename=$(fzf +i -q "$query")
 	mv $filename archive/$filename
-	info "$filename archived"
+	success "$filename archived"
 }
 
 daily () {
@@ -70,7 +67,7 @@ daily () {
 		touch $filename
 	fi
 
-	info "Daily notes file created at $today"
+	success "Daily notes file created at $today"
 
 	open $filename
 }
@@ -88,7 +85,11 @@ find () {
 }
 
 list () {
+	info "finding notes files"
+	echo ""
 	ls $NOTES_DIR
+	echo ""
+	success "all notes files listed"
 }
 
 grep () {
@@ -103,4 +104,5 @@ if [[ ! -d "$NOTES_DIR" ]]; then
 	exit
 fi
 
+echo ""
 $action $query
