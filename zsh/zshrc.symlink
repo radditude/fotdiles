@@ -75,6 +75,10 @@ fi
 # Turn off all of the beeps and bells
 unsetopt BEEP
 
+# use arrow keys to navigate between words in iterm
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+
 # this line should really be:
 # . $(brew --prefix asdf)/asdf.sh
 # but brew --prefix takes almost half a second to run
