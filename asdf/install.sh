@@ -9,6 +9,7 @@ then
   asdf plugin-add nodejs
   asdf plugin-add elixir
   asdf plugin-add erlang
+  asdf plugin-add golang
   asdf plugin-update --all
   # install keys for nodejs
   bash $HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring

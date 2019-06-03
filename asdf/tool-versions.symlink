@@ -2,3 +2,4 @@ nodejs 12.2.0
 ruby 2.3.7
 elixir 1.8.1-otp-21
 erlang 21.3.7
+golang 1.10.8
