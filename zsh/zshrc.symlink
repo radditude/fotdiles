@@ -73,7 +73,9 @@ then
 fi
 
 # Turn off all of the beeps and bells
-unsetopt BEEP
+unsetopt beep
+unsetopt hist_beep
+unsetopt list_beep
 
 # use arrow keys to navigate between words in iterm
 bindkey "[D" backward-word
