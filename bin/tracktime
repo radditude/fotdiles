@@ -90,7 +90,7 @@ fi
 
 if [[ "$1" == "open" || "$1" == "edit" ]]; then
   info "opening timesheet in editor"
-  exec "$EDITOR" "$TIMESHEET"
+  exec "$SHORT_EDITOR" "$TIMESHEET"
   exit
 fi
 

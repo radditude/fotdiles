@@ -25,7 +25,7 @@ usage() {
 
 edit_coauthors() {
   info "opening co-author info file in editor.."
-  exec "$EDITOR" "$INFOSHEET"
+  exec "$SHORT_EDITOR" "$INFOSHEET"
   exit
 }
 

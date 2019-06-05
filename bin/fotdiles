@@ -43,7 +43,7 @@ while test $# -gt 0; do
 			displayUsageAndExit
 			;;
 		"-e"|"--edit"|"edit")
-			exec "$EDITOR" "$DOTFILES"
+			exec "$SHORT_EDITOR" "$DOTFILES"
 			exit
 			;;
 		*)

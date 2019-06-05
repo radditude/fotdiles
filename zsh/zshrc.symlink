@@ -23,13 +23,21 @@ then
   source ~/.localrc
 fi
 
+##################
+# Editor config
+##################
+
+# default editor, no options
+export SHORT_EDITOR='code'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code --wait --new-window'
+  # use wait flag so CLI tools will behave properly
+  export EDITOR="$SHORT_EDITOR --wait --new-window"
 fi
+
 
 # handy aliases
 alias ngrok=/usr/local/bin/ngrok
