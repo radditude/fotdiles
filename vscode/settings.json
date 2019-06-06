@@ -58,5 +58,8 @@
     "*.symlink": "shellscript"
   },
   "javascript.suggest.autoImports": false,
-  "elixirLinter.useStrict": true
+  "elixirLinter.useStrict": true,
+  "elixirLS.dialyzerEnabled": false,
+  "elixirLS.suggestSpecs": false,
+  "editor.formatOnSave": true
 }
