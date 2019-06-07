@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# symlink anything with a .symlink extension to $HOME
 
 DOTFILES=${1:-"$HOME/.fotdiles"}
 source $DOTFILES/functions/log

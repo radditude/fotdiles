@@ -61,7 +61,7 @@ success "fotdiles installation updated"
 
 $SCRIPTS/link $DOTFILES
 
-# instally things go here
+$SCRIPTS/run_installers $DOTFILES
 
 # git config stuff goes here
 

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# run anything called `install.sh`
+
+set -e
+
+DOTFILES=${1:-"$HOME/.fotdiles"}
+source $DOTFILES/functions/log
+
+run_installers () {
+  info 'running installers...'
+
+	cd $DOTFILES
+
+  for installer in $(find . -name install.sh)
+	do
+		info "running ${installer}"
+		sh "${installer}"
+	done
+}
+
+run_installers
+success "all installers run successfully!"
