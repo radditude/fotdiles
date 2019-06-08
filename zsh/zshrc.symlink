@@ -52,7 +52,7 @@ alias todo="cd $HOME/Dropbox/todo"
 alias notes="cd $HOME/Dropbox/notes"
 alias fot="cd $DOTFILES"
 
-export SUDO_PROMPT='     --> Password: '
+export SUDO_PROMPT='|- --> Password: '
 
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"

@@ -54,9 +54,10 @@ while test $# -gt 0; do
 	shift
 done
 
+# TODO: make sure this actually updates properly if
 info "pulling latest from Github"
 cd "$DOTFILES"
-git pull > /dev/null
+git pull &> /dev/null
 success "fotdiles installation updated"
 
 $SCRIPTS/link $DOTFILES
