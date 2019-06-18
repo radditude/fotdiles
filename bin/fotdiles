@@ -54,7 +54,6 @@ while test $# -gt 0; do
 	shift
 done
 
-# TODO: make sure this actually updates properly if
 info "pulling latest from Github"
 cd "$DOTFILES"
 git pull &> /dev/null
@@ -64,6 +63,6 @@ $SCRIPTS/link $DOTFILES
 
 $SCRIPTS/run_installers $DOTFILES
 
-# git config stuff goes here
+# TODO: script git config setup
 
 success "You are fully installed and up to date."

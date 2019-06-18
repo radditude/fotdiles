@@ -39,8 +39,10 @@ else
 fi
 
 
-# handy aliases
-alias ngrok=/usr/local/bin/ngrok
+##################
+# Aliases
+##################
+
 alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
 
@@ -54,8 +56,16 @@ alias fot="cd $DOTFILES"
 
 export SUDO_PROMPT='|- --> Password: '
 
+##################
+# PATH config
+##################
+
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"
+
+##################
+# Android dev config
+##################
 
 # configure android only if we have android stuff installed
 if [ -d "$HOME/Library/Android" ]
@@ -71,14 +81,22 @@ then
   alias emulator-default="emulator @Pixel_XL_API_28"
 fi
 
+##################
+# Deis config
+##################
+
 # configure deis stuff only if we have deis installed
-# TODO: figure out how to keep these profiles somewhere better
+# TODO: figure out how to manage these different profiles more better
 if [ -d "$HOME/.deis" ]
 then
   alias d-t="DEIS_PROFILE=tss deis"
   alias d-ts="DEIS_PROFILE=tsstage deis"
   alias d="DEIS_PROFILE=prod deis"
 fi
+
+##################
+# Shell options
+##################
 
 # Turn off all of the beeps and bells
 unsetopt beep
@@ -89,6 +107,12 @@ unsetopt list_beep
 bindkey "[D" backward-word
 bindkey "[C" forward-word
 
+##################
+# Integrations
+##################
+
+# asdf setup
+#
 # this line should really be:
 # . $(brew --prefix asdf)/asdf.sh
 # but brew --prefix takes almost half a second to run
