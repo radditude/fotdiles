@@ -68,7 +68,7 @@ then
   export PATH=$PATH:$ANDROID_HOME/platform-tools
 
   # Android aliases
-  alias emulator-default="emulator @Pixel_XL_API_28"
+  alias emulator-default="emulator @Pixel_3_XL_API_28"
 fi
 
 # configure deis stuff only if we have deis installed
