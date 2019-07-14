@@ -63,5 +63,11 @@
   "elixirLS.suggestSpecs": false,
   "yaml.format.singleQuote": true,
   "editor.autoClosingQuotes": "always",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "ruby.format": "standard",
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.intellisense": "rubyLocate",
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby"
+  }
 }
