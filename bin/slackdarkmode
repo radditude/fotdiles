@@ -18,11 +18,10 @@ usage () {
 
 FLAG="slackdarkmodehack"
 
-DIR="/Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static"
-FILE="$DIR/ssb-interop.js"
+DIR="/Applications/Slack.app/Contents/Resources/app.asar.darkmode/dist"
+FILE="$DIR/ssb-interop.bundle.js"
 
-CSS_OVERRIDES='code, pre { background-color: #535353; color: #85c5ff; }
-        .c-mrkdwn__pre, .c-mrkdwn__quote, pre { background: #535353 !important; background-color: #535353 !important; }
+CSS_OVERRIDES='.c-mrkdwn__pre, .c-mrkdwn__quote, pre { background: #535353 !important; background-color: #535353 !important; }
         #client_body:not(.onboarding):not(.feature_global_nav_layout):before {display: none;}
         .p-message_input_field, .p-message_input_plus { color: #e6e6e6 !important; background: padding-box #545454 !important; border-color: #424242 !important;}
         .ql-placeholder, .p-threads_flexpane__header_channel_name { color: #e6e6e6 !important; }
@@ -32,7 +31,8 @@ CSS_OVERRIDES='code, pre { background-color: #535353; color: #85c5ff; }
         .p-threads_view {background-color: #222;},
         .c-channel_name__text {color: #FFF}'
 
-SLACKDARKMODE="document.addEventListener('DOMContentLoaded', function darkMode() {
+SLACKDARKMODE="
+	document.addEventListener('DOMContentLoaded', function darkMode() {
 		$.ajax({
 			url:
 				'https://cdn.jsdelivr.net/gh/laCour/slack-night-mode/css/raw/black.css',
@@ -44,17 +44,30 @@ SLACKDARKMODE="document.addEventListener('DOMContentLoaded', function darkMode()
 	}); //$FLAG"
 
 append_snippet () {
+	unpack_archive
 	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $FILE > /dev/null
+	repack_archive
 }
 
 undo () {
+	unpack_archive
 	sudo sed -i "" "/$FLAG/d" $FILE
+	repack_archive
 }
 
 restart_slack () {
 	info "restarting Slack..."
-  # killall Slack &> /dev/null
-	# open /Applications/Slack.app
+  killall Slack &> /dev/null
+	open /Applications/Slack.app
+}
+
+unpack_archive () {
+	# npm install -g asar
+	sudo asar extract app.asar app.asar.darkmode
+}
+
+repack_archive () {
+	sudo asar pack app.asar.darkmode app.asar
 }
 
 fixslack () {
