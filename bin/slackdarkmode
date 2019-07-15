@@ -36,15 +36,11 @@ SLACKDARKMODE="
 	}); //$FLAG"
 
 append_snippet () {
-	unpack_archive
 	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $FILE > /dev/null
-	repack_archive
 }
 
 undo () {
-	unpack_archive
 	sudo sed -i "" "/$FLAG/d" $FILE
-	repack_archive
 }
 
 restart_slack () {
@@ -66,7 +62,9 @@ fixslack () {
 	if [[ "$1" == "undo" ]]
 	then
 		user_prompt "disabling dark mode... you may need to enter your password."
+		unpack_archive
 		undo
+		repack_archive
 		restart_slack
 		success "slack dark mode disabled!"
 		exit
@@ -76,6 +74,7 @@ fixslack () {
 	fi
 
   user_prompt "enabling dark mode... you may need to enter your password."
+	unpack_archive
 
   if grep -q "//$FLAG" $FILE
 	then
@@ -83,6 +82,7 @@ fixslack () {
 	fi
 
 	append_snippet
+	repack_archive
   restart_slack
   success "your slack has been endarkened!"
 }
