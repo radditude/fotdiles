@@ -1,0 +1,10 @@
+#!/usr/bin/env bash -e
+
+source $DOTFILES/functions/log
+
+info "closing Slack..."
+killall Slack &> /dev/null
+export SLACK_DEVELOPER_MENU=true
+open -a /Applications/Slack.app
+
+success "Use option+command+I to open the devtools window"
