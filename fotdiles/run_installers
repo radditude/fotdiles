@@ -21,4 +21,3 @@ run_installers () {
 
 run_installers
 success "all installers run successfully!"
-success "this is a test!!!"
