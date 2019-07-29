@@ -96,6 +96,19 @@ grep () {
 	rg -il "$query" $NOTES_DIR | fzf +i --preview='head -20 {+}' --preview-window=right:wrap --bind "enter:execute(open {})" --bind "q:accept"
 }
 
+new () {
+	cd $NOTES_DIR
+	if [[ -z "$query" ]]; then
+		fail "Please specify a name for the new note!"
+		exit
+	else
+		filename="$query.txt"
+		touch $filename
+		success "$filename created!"
+		open $filename
+	fi
+}
+
 
 [[ -z "$action" ]] || [[ "$action" == "usage" ]] && usage
 

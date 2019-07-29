@@ -249,13 +249,9 @@
 	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
@@ -265,11 +261,6 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
-	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
-	<array>
-		<string>0.000000, 0.000000, 224.000000, 263.000000, NO, NO</string>
-		<string>0.000000, 264.000000, 224.000000, 43.000000, NO, NO</string>
-	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -298,28 +289,18 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>929 110 445 559 0 0 1440 877 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>520 578 400 129 0 0 1440 900 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 381 620 392 0 0 1440 900 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 133 606 469 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>441 334 796 486 0 0 1440 900 </string>
+	<string>63 98 937 514 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>15 -5 1410 900 0 0 1440 900 </string>
+	<string>8 58 1074 821 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>3 29 1357 848 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>197 47 653 604 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>218 24 653 599 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>239 1 653 604 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>260 300 650 577 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 6</key>
-	<string>296 210 650 577 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 7</key>
-	<string>720 82 653 599 0 0 1440 877 </string>
+	<string>27 0 850 799 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -928,7 +909,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>10000</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -994,28 +975,32 @@
 			<string>/Users/cjhorton</string>
 		</dict>
 	</array>
-	<key>NoSyncAutoBurialReveal</key>
-	<true/>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>5EFFB90D-1B2D-455B-95CF-EAB8B57B3561</string>
+	<string>132E930B-1075-4135-8402-33AE0BFFE86A</string>
+	<key>NoSyncLastTipTime</key>
+	<real>577835301.01058102</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
-	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
-	<true/>
-	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
-	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>544930088.567384</real>
+	<real>545789652.605407</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+	</array>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>1</integer>
 	<key>PointerActions</key>
@@ -1052,7 +1037,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/cjhorton</string>
+	<string>/Users/cjhorton/.fotdiles/iterm2</string>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -1060,11 +1045,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=33</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=70</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-05-22T05:34:30Z</date>
+	<date>2019-06-28T04:32:56Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
