@@ -2,65 +2,75 @@
 
 source $DOTFILES/functions/log
 
-usage () {
-		echo ""
-		success "Dark mode for the MacOS desktop Slack client"
-		info "USAGE:"
-		info "  $(basename $0)"
-		info "    - enable dark mode or apply updated CSS overrides"
-		info "  $(basename $0) undo"
-		info "    - revert to light mode"
-		info "  $(basename $0) [help|usage]"
-		info "    - this message"
-		echo ""
-		exit 
+usage() {
+	echo ""
+	success "Dark mode for the MacOS desktop Slack client"
+	info "USAGE:"
+	info "  $(basename $0)"
+	info "    - enable dark mode or apply updated CSS overrides"
+	info "  $(basename $0) undo"
+	info "    - revert to light mode"
+	info "  $(basename $0) [help|usage]"
+	info "    - this message"
+	echo ""
+	exit
 }
 
 FLAG="slackdarkmodehack"
 
 DIR="/Applications/Slack.app/Contents/Resources"
-FILE="$DIR/app.asar.darkmode/dist/ssb-interop.bundle.js"
+JS_FILE_PATH="$DIR/app.asar.darkmode/dist/ssb-interop.bundle.js"
+CSS_FILE_PATH="$DIR/darkmode.css"
 
 CSS_OVERRIDES='code, pre, .CodeMirror { background-color: #535353; color: #85c5ff; }'
 
 SLACKDARKMODE="
 	document.addEventListener('DOMContentLoaded', function darkMode() {
-		$.ajax({
-			url:
-				'https://cdn.jsdelivr.net/gh/laCour/slack-night-mode/css/raw/black.css',
-			success: function success(css) {
-				let overrides = \`$CSS_OVERRIDES\`;
-				\$('<style></style>').appendTo('head').html(css + overrides);
-			},
+		const fs = require('fs');
+		const filePath = \`$CSS_FILE_PATH\`;
+		const overrides = \`$CSS_OVERRIDES\`;
+		fs.readFile(filePath, {
+			encoding: 'utf-8'
+		}, function(err, css) {
+			if (!err) {
+				var styleEl = document.createElement('style');
+				styleEl.innerHTML = css + overrides;
+				document.querySelector('head').append(styleEl);
+			} else {
+				console.error(err)
+			}
 		});
 	}); //$FLAG"
 
-append_snippet () {
-	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $FILE > /dev/null
+get_css() {
+	sudo curl -sSL -o "$CSS_FILE_PATH" "https://cdn.jsdelivr.net/gh/laCour/slack-night-mode/css/raw/black.css"
 }
 
-undo () {
-	sudo sed -i "" "/$FLAG/d" $FILE
+append_snippet() {
+	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $JS_FILE_PATH >/dev/null
 }
 
-restart_slack () {
+undo() {
+	sudo sed -i "" "/$FLAG/d" $JS_FILE_PATH
+}
+
+restart_slack() {
 	info "restarting Slack..."
-  killall Slack &> /dev/null
+	killall Slack &>/dev/null
 	open /Applications/Slack.app
 }
 
-unpack_archive () {
+unpack_archive() {
 	npm install -g asar
 	sudo asar extract $DIR/app.asar $DIR/app.asar.darkmode
 }
 
-repack_archive () {
+repack_archive() {
 	sudo asar pack $DIR/app.asar.darkmode $DIR/app.asar
 }
 
-fixslack () {
-	if [[ "$1" == "undo" ]]
-	then
+fixslack() {
+	if [[ "$1" == "undo" ]]; then
 		user_prompt "disabling dark mode... you may need to enter your password."
 		unpack_archive
 		undo
@@ -68,23 +78,22 @@ fixslack () {
 		restart_slack
 		success "slack dark mode disabled!"
 		exit
-	elif [[ "$1" == "usage" || "$1" == "help" ]]
-	then
+	elif [[ "$1" == "usage" || "$1" == "help" ]]; then
 		usage
 	fi
 
-  user_prompt "enabling dark mode... you may need to enter your password."
+	user_prompt "enabling dark mode... you may need to enter your password."
+	get_css
 	unpack_archive
 
-  if grep -q "//$FLAG" $FILE
-	then
+	if grep -q "//$FLAG" $JS_FILE_PATH; then
 		undo
 	fi
 
 	append_snippet
 	repack_archive
-  restart_slack
-  success "your slack has been endarkened!"
+	restart_slack
+	success "your slack has been endarkened!"
 }
 
 fixslack "$@"
