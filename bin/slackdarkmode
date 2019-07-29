@@ -22,10 +22,11 @@ DIR="/Applications/Slack.app/Contents/Resources"
 JS_FILE_PATH="$DIR/app.asar.darkmode/dist/ssb-interop.bundle.js"
 CSS_FILE_PATH="$DIR/darkmode.css"
 
-CSS_OVERRIDES='code, pre, .CodeMirror { background-color: #535353; color: #85c5ff; }'
+CSS_OVERRIDES='code, pre, .CodeMirror { background-color: #535353; color: #85c5ff; }
+	.p-classic_nav { background-color: #222222; }
+	.p-classic_nav__channel_header__subtitle { color: #e6e6e6 }'
 
-SLACKDARKMODE="
-	document.addEventListener('DOMContentLoaded', function darkMode() {
+SLACKDARKMODE="document.addEventListener('DOMContentLoaded', function darkMode() {
 		const fs = require('fs');
 		const filePath = \`$CSS_FILE_PATH\`;
 		const overrides = \`$CSS_OVERRIDES\`;
@@ -44,6 +45,10 @@ SLACKDARKMODE="
 
 get_css() {
 	sudo curl -sSL -o "$CSS_FILE_PATH" "https://cdn.jsdelivr.net/gh/laCour/slack-night-mode/css/raw/black.css"
+}
+
+append_newline() {
+	echo $'\n' | sudo tee -a $JS_FILE_PATH >/dev/null
 }
 
 append_snippet() {
@@ -88,6 +93,8 @@ fixslack() {
 
 	if grep -q "//$FLAG" $JS_FILE_PATH; then
 		undo
+	else
+		append_newline
 	fi
 
 	append_snippet
