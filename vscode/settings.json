@@ -67,6 +67,9 @@
   "ruby.format": "standard",
   "ruby.codeCompletion": "rcodetools",
   "ruby.intellisense": "rubyLocate",
+  "ruby.lint": {
+    "rubocop": true
+  },
   "[ruby]": {
     "editor.defaultFormatter": "rebornix.ruby"
   }
