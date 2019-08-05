@@ -10,16 +10,13 @@ HIST_STAMPS="mm/dd/yyyy"
 ZSH_CUSTOM=$DOTFILES/zsh
 plugins=(
   git
-  mix-fast
 )
 source $ZSH/oh-my-zsh.sh
-
 
 ##################
 # Local secrets config for things that need to stay out of git
 ##################
-if [[ -a ~/.localrc ]]
-then
+if [[ -e ~/.localrc ]]; then
   source ~/.localrc
 fi
 
@@ -38,7 +35,6 @@ else
   export EDITOR="$SHORT_EDITOR --wait --new-window"
 fi
 
-
 ##################
 # Aliases
 ##################
@@ -47,9 +43,7 @@ alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
 
 # quick nav
-alias rev="cd $HOME/src/rev"
 alias src="cd $HOME/src"
-alias current="cd $HOME/src/rev/tss"
 alias todo="cd $HOME/Dropbox/todo"
 alias notes="cd $HOME/Dropbox/notes"
 alias fot="cd $DOTFILES"
@@ -62,37 +56,6 @@ export SUDO_PROMPT='|- --> Password: '
 
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"
-
-##################
-# Android dev config
-##################
-
-# configure android only if we have android stuff installed
-if [ -d "$HOME/Library/Android" ]
-then
-  # PATH config for Android
-  export ANDROID_HOME=$HOME/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_HOME/emulator
-  export PATH=$PATH:$ANDROID_HOME/tools
-  export PATH=$PATH:$ANDROID_HOME/tools/bin
-  export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-  # Android aliases
-  alias emulator-default="emulator @Pixel_3_XL_API_28"
-fi
-
-##################
-# Deis config
-##################
-
-# configure deis stuff only if we have deis installed
-# TODO: figure out how to manage these different profiles more better
-if [ -d "$HOME/.deis" ]
-then
-  alias d-t="DEIS_PROFILE=tss deis"
-  alias d-ts="DEIS_PROFILE=tsstage deis"
-  alias d="DEIS_PROFILE=prod deis"
-fi
 
 ##################
 # Shell options
