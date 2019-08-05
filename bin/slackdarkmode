@@ -24,7 +24,9 @@ CSS_FILE_PATH="$DIR/darkmode.css"
 
 CSS_OVERRIDES='code, pre, .CodeMirror { background-color: #535353; color: #85c5ff; }
 	.p-classic_nav { background-color: #222222; }
-	.p-classic_nav__channel_header__subtitle { color: #e6e6e6 }'
+	.p-classic_nav__channel_header__subtitle, .p-member_profile_field__label, .p-member_profile_name__link, .c-sidebar_menu__list_item { color: #e6e6e6; }
+	.p-member_profile_card, label.p-prefs_modal__radiogroup--selected, .c-fullscreen_modal__header { background: #363636 !important; color: #ffffff; }
+	.p-prefs_modal__notification_example, .c-select_button { color: #363636; }'
 
 SLACKDARKMODE="document.addEventListener('DOMContentLoaded', function darkMode() {
 		const fs = require('fs');
@@ -100,7 +102,8 @@ fixslack() {
 	append_snippet
 	repack_archive
 	restart_slack
-	success "your slack has been endarkened!"
+	info "Matching sidebar theme: #363636,#444A47,#58bf9f,#FFFFFF,#434745,#FFFFFF,#a1c255,#63acc7"
+	success "Your slack has been endarkened!"
 }
 
 fixslack "$@"
