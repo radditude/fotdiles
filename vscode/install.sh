@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -e
+#!/usr/bin/env bash
 
 setup() {
 	ORIGINAL_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"

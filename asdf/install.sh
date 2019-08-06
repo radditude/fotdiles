@@ -7,8 +7,6 @@ then
   info "configuring asdf"
   asdf plugin-add ruby
   asdf plugin-add nodejs
-  asdf plugin-add elixir
-  asdf plugin-add erlang
   asdf plugin-add golang
   asdf plugin-update --all
   # install keys for nodejs
