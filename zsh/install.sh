@@ -11,4 +11,4 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 fi
 
 # update oh-my-zsh
-upgrade_oh_my_zsh
+sh $HOME/.oh-my-zsh/tools/upgrade.sh
