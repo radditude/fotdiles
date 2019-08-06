@@ -7,15 +7,24 @@ set -e
 DOTFILES=${1:-"$HOME/.fotdiles"}
 source $DOTFILES/functions/log
 
-run_installers () {
-  info 'running installers...'
+run_single_installer() {
+	installer=$1
+	info "running ${installer}"
+	sh "${installer}"
+}
+
+run_installers() {
+	info 'running installers...'
 
 	cd $DOTFILES
 
-  for installer in $(find . -name install.sh)
-	do
-		info "running ${installer}"
-		sh "${installer}"
+	# run the homebrew installer first since other stuff depends on the things it installs
+	run_single_installer "./homebrew/install.sh"
+
+	for installer in $(find . -name install.sh); do
+		if [[ "$installer" != *"homebrew"* ]]; then
+			run_single_installer $installer
+		fi
 	done
 }
 
