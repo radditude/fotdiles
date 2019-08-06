@@ -15,7 +15,7 @@
 
 set -e
 
-DOTFILES=${DOTFILES:-"$HOME/.fotdiles"}
+export DOTFILES=${DOTFILES:-"$HOME/.fotdiles"}
 SCRIPTS=$DOTFILES/fotdiles
 
 source $DOTFILES/functions/log
