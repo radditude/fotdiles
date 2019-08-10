@@ -44,7 +44,7 @@ alias t="todo.sh -d $HOME/.todo.cfg"
 
 # quick nav
 alias src="cd $HOME/src"
-alias todo="cd $HOME/Dropbox/todo"
+alias todo="cd $HOME/Dropbox/notes/todo"
 alias notes="cd $HOME/Dropbox/notes"
 alias fot="cd $DOTFILES"
 
