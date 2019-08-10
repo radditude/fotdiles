@@ -9,35 +9,35 @@ NOTES_DIR=${NOTES_DIR:-"$HOME/Dropbox/notes"}
 source $DOTFILES/functions/log
 
 usage() {
-  echo ""
-  success "Search and manage text files for notes"
-  info "USAGE:"
-  info "  $(basename $0) <action> <query>"
-  info "  Actions:"
-  info "    $(basename $0) list"
+	echo ""
+	success "Search and manage text files for notes"
+	info "USAGE:"
+	info "  $(basename $0) <action> <query>"
+	info "  Actions:"
+	info "    $(basename $0) list"
 	info "      - list all notes"
 	info "    $(basename $0) daily"
 	info "      - make new note file for the current day"
 	info "    $(basename $0) find <query>"
 	info "      - find a notes file and open it"
-	info "    $(basename $0) archive <query>"
+	info "    $(basename $0) archive <query|old>"
 	info "      - move file from main notes directory to archive"
-	info "    $(basename $0) archiveold"
-	info "      - move all daily notes files other than today's to the archive"
 	info "    $(basename $0) grep <query>"
 	info "      - search all notes files for the given word or phrase"
-  echo ""
-  exit
+	info "    $(basename $0) new <name>"
+	info "      - create and open a new notes file"
+	echo ""
+	exit
 }
 
 today="$(date +%F).txt"
 
-archiveold () {
+archiveold() {
 	dailies=($NOTES_DIR/*-*-*.txt)
 
 	for f in "${dailies[@]}"; do
 		filename=$(basename "$f")
-	
+
 		if [[ ! "$filename" == "$today" ]]; then
 			mv "$NOTES_DIR/$filename" "$NOTES_DIR/archive/$filename"
 			info "$filename archived"
@@ -47,7 +47,7 @@ archiveold () {
 	success "all expired daily notes archived"
 }
 
-archive () {
+archive() {
 	if [[ "$query" == "old" ]]; then
 		archiveold
 		exit
@@ -60,7 +60,7 @@ archive () {
 	success "$filename archived"
 }
 
-daily () {
+daily() {
 	filename="$NOTES_DIR/$today"
 
 	if [[ ! -f $filename ]]; then
@@ -72,7 +72,7 @@ daily () {
 	open $filename
 }
 
-find () {
+find() {
 	cd $NOTES_DIR
 
 	if [[ "$query" == "today" ]]; then
@@ -84,7 +84,7 @@ find () {
 	open $(fzf +i --preview='head -20 {+}' --preview-window=right:wrap -q "$query")
 }
 
-list () {
+list() {
 	info "finding notes files"
 	echo ""
 	ls $NOTES_DIR
@@ -92,11 +92,11 @@ list () {
 	success "all notes files listed"
 }
 
-grep () {
+grep() {
 	rg -il "$query" $NOTES_DIR | fzf +i --preview='head -20 {+}' --preview-window=right:wrap --bind "enter:execute(open {})" --bind "q:accept"
 }
 
-new () {
+new() {
 	cd $NOTES_DIR
 	if [[ -z "$query" ]]; then
 		fail "Please specify a name for the new note!"
@@ -108,7 +108,6 @@ new () {
 		open $filename
 	fi
 }
-
 
 [[ -z "$action" ]] || [[ "$action" == "usage" ]] && usage
 
