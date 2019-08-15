@@ -41,6 +41,8 @@ fi
 
 alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
+alias please="sudo"
+alias be="bundle exec"
 
 # quick nav
 alias src="cd $HOME/src"
@@ -53,6 +55,9 @@ export SUDO_PROMPT='|- --> Password: '
 ##################
 # PATH config
 ##################
+
+# enable psql command for Postgres.app
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"

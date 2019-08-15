@@ -128,5 +128,7 @@
     "rgba(252, 218, 149, 0.04)",
     "rgba(165, 205, 160, 0.04)",
     "rgba(197, 148, 197, 0.04)"
-  ]
+  ],
+  "shellformat.path": "/usr/local/bin/shfmt",
+  "shellformat.flag": "-sr"
 }

@@ -40,7 +40,7 @@ SLACKDARKMODE="document.addEventListener('DOMContentLoaded', function darkMode()
 				styleEl.innerHTML = css + overrides;
 				document.querySelector('head').append(styleEl);
 			} else {
-				console.error(err)
+				console.error(err);
 			}
 		});
 	}); //$FLAG"
@@ -50,11 +50,11 @@ get_css() {
 }
 
 append_newline() {
-	echo $'\n' | sudo tee -a $JS_FILE_PATH >/dev/null
+	echo $'\n' | sudo tee -a $JS_FILE_PATH > /dev/null
 }
 
 append_snippet() {
-	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $JS_FILE_PATH >/dev/null
+	echo "$SLACKDARKMODE" | tr '\n' ' ' | tr -s '[:blank:]' | sudo tee -a $JS_FILE_PATH > /dev/null
 }
 
 undo() {
@@ -63,7 +63,7 @@ undo() {
 
 restart_slack() {
 	info "restarting Slack..."
-	killall Slack &>/dev/null
+	killall Slack &> /dev/null
 	open /Applications/Slack.app
 }
 
