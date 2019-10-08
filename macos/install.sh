@@ -32,3 +32,6 @@ killall Dock
 
 # add the QUIT option to the finder menu
 defaults write com.apple.finder QuitMenuItem -bool true && killall Finder
+
+# disable ipv6
+networksetup -setv6off Wi-Fi

@@ -23,8 +23,8 @@ extensions() {
 		url="$base_url$extension"
 
 		if grep -q "$extension" $current_state; then
-			save-extension $extension $synced_list
-			remove-extension $extension $current_state
+			save_extension $extension $synced_list
+			remove_extension $extension $current_state
 		else
 			info "The following extension has not been installed locally:"
 			info "$url"
@@ -35,10 +35,10 @@ extensions() {
 			case "$action" in
 			i)
 				code --install-extension $extension
-				save-extension $extension $synced_list
+				save_extension $extension $synced_list
 				;;
 			s)
-				save-extension $extension $synced_list
+				save_extension $extension $synced_list
 				;;
 			*) ;;
 			esac
@@ -59,7 +59,7 @@ extensions() {
 			code --uninstall-extension $extension
 			;;
 		y)
-			save-extension $extension $synced_list
+			save_extension $extension $synced_list
 			;;
 		*) ;;
 		esac
@@ -70,13 +70,13 @@ extensions() {
 	rm $working_list
 }
 
-save-extension() {
+save_extension() {
 	extension=$1
 	list=$2
 	echo "$extension" >>$list
 }
 
-remove-extension() {
+remove_extension() {
 	extension=$1
 	list=$2
 	sed -i "" "/$extension/d" $list
