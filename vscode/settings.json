@@ -128,5 +128,18 @@
     "rgba(252, 218, 149, 0.04)",
     "rgba(165, 205, 160, 0.04)",
     "rgba(197, 148, 197, 0.04)"
-  ]
+  ],
+  "terraform.indexing": {
+    "enabled": true,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
+  },
+  "terraform.languageServer": {
+    "enabled": false,
+    "args": []
+  }
 }
