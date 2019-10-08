@@ -43,6 +43,8 @@ alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
 alias please="sudo"
 alias be="bundle exec"
+# keep zsh from misinterpreting [ ]
+alias rake='noglob rake'
 
 # quick nav
 alias src="cd $HOME/src"
@@ -62,6 +64,9 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 # add $DOTFILES/bin to $PATH so everything there is executable
 export PATH="$DOTFILES/bin:$PATH"
 
+# postgres
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
 ##################
 # Shell options
 ##################
@@ -79,6 +84,9 @@ bindkey "[C" forward-word
 # Integrations
 ##################
 
+# iterm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # asdf setup
 #
 # this line should really be:
@@ -86,6 +94,3 @@ bindkey "[C" forward-word
 # but brew --prefix takes almost half a second to run
 # which really slows down shell startup
 . /usr/local/opt/asdf/asdf.sh
-
-# iterm2 shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

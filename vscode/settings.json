@@ -2,7 +2,6 @@
   "editor.fontFamily": "Fira Code, Menlo, monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
-  "editor.insertSpaces": false,
   "eslint.run": "onSave",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -37,9 +36,10 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "editor.lineHeight": 20,
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "wordWrapColumn",
   "[markdown]": {
-    "editor.wordWrap": "wordWrapColumn"
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "editor.renderWhitespace": "all",
   "editor.renderControlCharacters": false,
@@ -54,12 +54,12 @@
   "search-node-modules.path": "node_modules",
   "files.associations": {
     "*.leex": "Eex",
-    "*.symlink": "shellscript"
+    "*.symlink": "shellscript",
+    "*.erb": "html"
   },
   "javascript.suggest.autoImports": false,
   "yaml.format.singleQuote": true,
   "editor.autoClosingQuotes": "always",
-  "editor.formatOnSave": true,
   "ruby.format": "standard",
   "ruby.codeCompletion": "rcodetools",
   "ruby.intellisense": "rubyLocate",
@@ -130,5 +130,24 @@
     "rgba(197, 148, 197, 0.04)"
   ],
   "shellformat.path": "/usr/local/bin/shfmt",
-  "shellformat.flag": "-sr"
+  "shellformat.flag": "-sr",
+  "html.format.indentHandlebars": true,
+  "html.format.wrapLineLength": 0,
+  "markdown.preview.fontFamily": "'Menlo', 'Droid Sans', 'Arial', sans-serif",
+  "markdown.preview.lineHeight": 1.8,
+  "markdown.preview.fontSize": 15,
+  "markdown.preview.openMarkdownLinks": "inEditor",
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.toc.githubCompatibility": true,
+  "prettier.proseWrap": "always",
+  "editor.wordWrapColumn": 120,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "go.formatTool": "goimports",
 }
