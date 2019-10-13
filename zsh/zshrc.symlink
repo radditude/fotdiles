@@ -45,6 +45,8 @@ alias please="sudo"
 alias be="bundle exec"
 # keep zsh from misinterpreting [ ]
 alias rake='noglob rake'
+# use brew-installed vim
+alias vim="/usr/local/bin/vim"
 
 # quick nav
 alias src="cd $HOME/src"
@@ -83,6 +85,9 @@ bindkey "[C" forward-word
 ##################
 # Integrations
 ##################
+
+# zsh completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
