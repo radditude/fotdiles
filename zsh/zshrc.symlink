@@ -43,10 +43,11 @@ alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
 alias please="sudo"
 alias be="bundle exec"
-# keep zsh from misinterpreting [ ]
+# keep zsh from misinterpreting [ ] in rake commands
 alias rake='noglob rake'
 # use brew-installed vim
-alias vim="/usr/local/bin/vim"
+alias vi=/usr/local/bin/vim
+alias vim=/usr/local/bin/vim
 
 # quick nav
 alias src="cd $HOME/src"
