@@ -8,10 +8,6 @@
   "git.checkoutType": "local",
   "git.countBadge": "tracked",
   "git.decorations.enabled": false,
-  "prettier.arrowParens": "always",
-  "prettier.bracketSpacing": false,
-  "prettier.eslintIntegration": true,
-  "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
@@ -60,12 +56,15 @@
   "javascript.suggest.autoImports": false,
   "yaml.format.singleQuote": true,
   "editor.autoClosingQuotes": "always",
-  "ruby.format": "standard",
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": false
+    }
+  },
+  "ruby.format": "rubocop",
   "ruby.codeCompletion": "rcodetools",
   "ruby.intellisense": "rubyLocate",
-  "ruby.lint": {
-    "rubocop": true
-  },
   "[ruby]": {
     "editor.defaultFormatter": "rebornix.ruby"
   },
@@ -133,7 +132,10 @@
     "enabled": true,
     "liveIndexing": false,
     "delay": 500,
-    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
   },
   "terraform.languageServer": {
     "enabled": false,
@@ -159,5 +161,19 @@
   "editor.formatOnSave": true,
   "diffEditor.ignoreTrimWhitespace": true,
   "files.trimTrailingWhitespace": true,
-  "go.formatTool": "goimports"
+  "go.formatTool": "goimports",
+  "prettier.configPath": ".prettierrc",
+  "html.format.wrapAttributes": "preserve",
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/vendor/**": true,
+    "**/yarn_cache/**": true
+  },
+  "search.exclude": {
+    "**/tmp": true,
+    "**/vendor": true,
+    "**/yarn_cache": true
+  }
 }
