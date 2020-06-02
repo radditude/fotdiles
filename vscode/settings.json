@@ -36,8 +36,11 @@
   "[markdown]": {
     "editor.wordWrapColumn": 80,
     "editor.wordWrap": "wordWrapColumn",
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "files.trimTrailingWhitespace": false,
+    "files.insertFinalNewline": false,
+    "editor.trimAutoWhitespace": false
   },
+  "markdown.format.proseWrap": "never",
   "editor.renderWhitespace": "all",
   "editor.renderControlCharacters": false,
   "breadcrumbs.enabled": true,
@@ -52,7 +55,8 @@
   "files.associations": {
     "*.leex": "Eex",
     "*.symlink": "shellscript",
-    "*.erb": "html"
+    "*.erb": "html",
+    "*.md": "markdown"
   },
   "javascript.suggest.autoImports": false,
   "yaml.format.singleQuote": true,
@@ -132,10 +136,7 @@
     "enabled": true,
     "liveIndexing": false,
     "delay": 500,
-    "exclude": [
-      ".terraform/**/*",
-      "**/.terraform/**/*"
-    ]
+    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
   },
   "terraform.languageServer": {
     "enabled": false,
