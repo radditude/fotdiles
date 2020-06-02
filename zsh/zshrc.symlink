@@ -48,6 +48,9 @@ alias rake='noglob rake'
 # use brew-installed vim
 alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
+function local-tf() {
+  $(go env GOPATH)/bin/terraform $@
+}
 
 # quick nav
 alias src="cd $HOME/src"
