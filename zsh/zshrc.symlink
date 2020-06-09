@@ -48,6 +48,10 @@ alias rake='noglob rake'
 # use brew-installed vim
 alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
+# run locally installed go packages
+function gorun() {
+  $(go env GOPATH)/bin/$@
+}
 
 # quick nav
 alias src="cd $HOME/src"

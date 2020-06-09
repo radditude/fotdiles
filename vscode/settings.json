@@ -160,7 +160,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "files.trimTrailingWhitespace": true,
   "go.formatTool": "goimports",
   "prettier.configPath": ".prettierrc",
@@ -176,5 +176,6 @@
     "**/tmp": true,
     "**/vendor": true,
     "**/yarn_cache": true
-  }
+  },
+  "go.useLanguageServer": true
 }
