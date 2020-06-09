@@ -159,7 +159,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "files.trimTrailingWhitespace": true,
   "go.formatTool": "goimports",
   "prettier.configPath": ".prettierrc",
@@ -179,4 +179,8 @@
   "html.format.indentHandlebars": true,
   "html.format.enable": false,
   "workbench.editor.showTabs": true,
+  "[plaintext]": {
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn"
+  }
 }

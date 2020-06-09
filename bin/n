@@ -5,6 +5,7 @@ shift
 query=${@:1}
 
 NOTES_DIR=${NOTES_DIR:-"$HOME/Dropbox/notes"}
+NOTES_EDITOR="code"
 
 source $DOTFILES/functions/log
 
@@ -69,7 +70,7 @@ daily() {
 
 	success "Daily notes file created at $today"
 
-	open $filename
+	$NOTES_EDITOR $filename
 }
 
 find() {
@@ -81,7 +82,7 @@ find() {
 		query="$(date -v -1d +%F)"
 	fi
 
-	open $(fzf +i --preview='head -20 {+}' --preview-window=right:wrap -q "$query")
+	$NOTES_EDITOR $(fzf +i --preview='head -20 {+}' --preview-window=right:wrap -q "$query")
 }
 
 list() {
@@ -93,7 +94,7 @@ list() {
 }
 
 grep() {
-	rg -il "$query" $NOTES_DIR | fzf +i --preview='head -20 {+}' --preview-window=right:wrap --bind "enter:execute(open {})" --bind "q:accept"
+	rg -il "$query" $NOTES_DIR | fzf +i --preview='head -20 {+}' --preview-window=right:wrap --bind "enter:execute($NOTES_EDITOR {})" --bind "q:accept"
 }
 
 new() {
@@ -105,7 +106,7 @@ new() {
 		filename="$query.txt"
 		touch $filename
 		success "$filename created!"
-		open $filename
+		$NOTES_EDITOR $filename
 	fi
 }
 
