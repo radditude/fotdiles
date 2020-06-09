@@ -35,3 +35,9 @@ defaults write com.apple.finder QuitMenuItem -bool true && killall Finder
 
 # disable ipv6
 networksetup -setv6off Wi-Fi
+
+# key repeating
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false
+defaults delete -g ApplePressAndHoldEnabled

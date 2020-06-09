@@ -34,6 +34,7 @@
   "editor.lineHeight": 20,
   "editor.wordWrap": "wordWrapColumn",
   "[markdown]": {
+    "editor.wordWrapColumn": 80,
     "editor.wordWrap": "wordWrapColumn",
     "files.trimTrailingWhitespace": false,
     "files.insertFinalNewline": false,
@@ -66,7 +67,6 @@
       "useBundler": false
     }
   },
-  "ruby.format": "rubocop",
   "ruby.codeCompletion": "rcodetools",
   "ruby.intellisense": "rubyLocate",
   "[ruby]": {
@@ -144,7 +144,6 @@
   },
   "shellformat.path": "/usr/local/bin/shfmt",
   "shellformat.flag": "-sr",
-  "html.format.indentHandlebars": true,
   "html.format.wrapLineLength": 0,
   "markdown.preview.fontFamily": "'Menlo', 'Droid Sans', 'Arial', sans-serif",
   "markdown.preview.lineHeight": 1.8,
@@ -164,18 +163,25 @@
   "files.trimTrailingWhitespace": true,
   "go.formatTool": "goimports",
   "prettier.configPath": ".prettierrc",
-  "html.format.wrapAttributes": "preserve",
   "files.watcherExclude": {
     "**/.git/**": true,
     "**/node_modules/**": true,
     "**/tmp/**": true,
     "**/vendor/**": true,
-    "**/yarn_cache/**": true
+    "**/yarn_cache/**": true,
+    "**/dist/**": true
   },
   "search.exclude": {
     "**/tmp": true,
     "**/vendor": true,
     "**/yarn_cache": true
   },
-  "go.useLanguageServer": true
+  "go.useLanguageServer": true,
+  "html.format.indentHandlebars": true,
+  "html.format.enable": false,
+  "workbench.editor.showTabs": true,
+  "[plaintext]": {
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn"
+  }
 }

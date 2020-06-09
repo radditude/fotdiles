@@ -52,6 +52,10 @@ alias vim=/usr/local/bin/vim
 function gorun() {
   $(go env GOPATH)/bin/$@
 }
+# run locally installed terraform
+function local-tf() {
+  $(go env GOPATH)/bin/terraform $@
+}
 
 # quick nav
 alias src="cd $HOME/src"
