@@ -73,6 +73,11 @@ daily() {
 	$NOTES_EDITOR $filename
 }
 
+open() {
+	cd $NOTES_DIR
+  $NOTES_EDITOR notes.code-workspace
+}
+
 find() {
 	cd $NOTES_DIR
 
