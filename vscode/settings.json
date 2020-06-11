@@ -130,6 +130,7 @@
     "**/vendor": true,
     "**/yarn_cache": true
   },
+  "go.useLanguageServer": true,
   "html.format.indentHandlebars": true,
   "html.format.enable": false,
   "workbench.editor.showTabs": true,
