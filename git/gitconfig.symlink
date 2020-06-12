@@ -5,6 +5,7 @@
 	default = simple
 [core]
 	editor = vim
+	excludesfile = /Users/cjhorton/.gitignore
 [hub]
   protocol = https
 [color]
