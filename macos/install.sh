@@ -15,7 +15,7 @@ defaults write com.apple.Finder AppleShowAllFiles true
 screenshot_directory="$HOME/Pictures/screenshots"
 
 if [ ! -d $screenshot_directory ]; then
-	mkdir $screenshot_directory
+  mkdir $screenshot_directory
 fi
 
 defaults write com.apple.screencapture location $screenshot_directory
@@ -40,4 +40,3 @@ networksetup -setv6off Wi-Fi
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false
-defaults delete -g ApplePressAndHoldEnabled
