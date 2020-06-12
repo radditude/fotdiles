@@ -42,12 +42,16 @@ fi
 alias git=hub
 alias t="todo.sh -d $HOME/.todo.cfg"
 alias please="sudo"
-alias be="bundle exec"
-# keep zsh from misinterpreting [ ] in rake commands
-alias rake='noglob rake'
 # use brew-installed vim
 alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
+
+# Ruby ############
+alias be="bundle exec"
+# keep zsh from misinterpreting [ ] in rake commands
+alias rake='noglob rake'
+
+# Go ##############
 # run locally installed go packages
 function gorun() {
   $(go env GOPATH)/bin/$@
@@ -57,7 +61,7 @@ function local-tf() {
   $(go env GOPATH)/bin/terraform $@
 }
 
-# quick nav
+# Navigation ######
 alias src="cd $HOME/src"
 alias todo="cd $HOME/Dropbox/notes/todo"
 alias notes="cd $HOME/Dropbox/notes"

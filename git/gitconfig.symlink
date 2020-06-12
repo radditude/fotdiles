@@ -1,0 +1,17 @@
+# Stuff I don't want in VCS goes here
+[include]
+  path = ~/.gitconfig.local
+[push]
+	default = simple
+[core]
+	editor = vim
+[hub]
+  protocol = https
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[alias]
+  co = checkout
+  new = !git init && git checkout -b main
