@@ -60,6 +60,12 @@ function gorun() {
 function local-tf() {
   $(go env GOPATH)/bin/terraform $@
 }
+function goinit() {
+  asdf reshim golang && \
+    export GOPATH=$(go env GOPATH) && \
+    export GOBIN=$(go env GOBIN) && \
+    export GOROOT=$(go env GOROOT)
+}
 
 # Navigation ######
 alias src="cd $HOME/src"

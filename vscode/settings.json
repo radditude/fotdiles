@@ -56,7 +56,8 @@
     "*.leex": "Eex",
     "*.symlink": "shellscript",
     "*.erb": "html",
-    "*.md": "markdown"
+    "*.md": "markdown",
+    "Brewfile": "shellscript"
   },
   "javascript.suggest.autoImports": false,
   "yaml.format.singleQuote": true,
@@ -147,5 +148,6 @@
   "peacock.surpriseMeOnStartup": true,
   "peacock.surpriseMeFromFavoritesOnly": true,
   "peacock.affectTitleBar": false,
-  "peacock.affectStatusBar": false
+  "peacock.affectStatusBar": false,
+  "go.inferGopath": true
 }
