@@ -9,16 +9,15 @@ foxundermoon.shell-format
 jasonnutter.search-node-modules
 marcoms.oceanic-plus
 mrmlnc.vscode-scss
-ms-vscode.Go
 oderwat.indent-rainbow
 rebornix.ruby
 redhat.vscode-yaml
 waderyan.nodejs-extension-pack
 xabikos.JavaScriptSnippets
 abusaidm.html-snippets
-mauve.terraform
 johnpapa.vscode-peacock
 wingrunr21.vscode-ruby
 vortizhe.simple-ruby-erb
 vsls-contrib.codetour
 yzhang.markdown-all-in-one
+hashicorp.terraform
