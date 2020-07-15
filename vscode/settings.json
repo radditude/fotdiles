@@ -149,5 +149,6 @@
   "peacock.surpriseMeFromFavoritesOnly": true,
   "peacock.affectTitleBar": false,
   "peacock.affectStatusBar": false,
-  "go.inferGopath": true
+  "editor.minimap.enabled": false,
+  "go.buildOnSave": "off"
 }
