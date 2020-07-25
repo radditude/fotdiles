@@ -16,3 +16,5 @@
 [alias]
   co = checkout
   new = !git init && git checkout -b main
+[pull]
+	ff = only
