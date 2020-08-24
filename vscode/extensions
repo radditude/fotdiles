@@ -14,11 +14,10 @@ rebornix.ruby
 redhat.vscode-yaml
 waderyan.nodejs-extension-pack
 xabikos.JavaScriptSnippets
-abusaidm.html-snippets
 johnpapa.vscode-peacock
 wingrunr21.vscode-ruby
 vortizhe.simple-ruby-erb
 vsls-contrib.codetour
 dbankier.vscode-quick-select
-golang.Go
 hashicorp.terraform
+golang.go
