@@ -114,7 +114,7 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "files.trimTrailingWhitespace": true,
   "go.formatTool": "goimports",
   "prettier.configPath": ".prettierrc",
@@ -150,5 +150,6 @@
   "peacock.affectTitleBar": false,
   "peacock.affectStatusBar": false,
   "editor.minimap.enabled": false,
-  "go.buildOnSave": "off"
+  "go.buildOnSave": "off",
+  "ruby.format": "rubocop"
 }
