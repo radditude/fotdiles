@@ -21,3 +21,5 @@ vsls-contrib.codetour
 dbankier.vscode-quick-select
 hashicorp.terraform
 golang.go
+castwide.solargraph
+vscodevim.vim
