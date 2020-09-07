@@ -5,6 +5,8 @@
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.autoClosingQuotes": "always",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoSurround": "languageDefined",
   "editor.fontFamily": "Jetbrains Mono, Menlo, monospace",
   "editor.fontLigatures": true,
   "editor.lineHeight": 20,
@@ -182,18 +184,21 @@
     "args": ["serve"]
   },
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "Oceanic Plus",
   "workbench.colorCustomizations": {
     "activityBarBadge.background": "#6699CC",
     "badge.background": "#6699CC",
     "editorError.foreground": "#EC5F67",
     "editorWarning.foreground": "#EC5F67"
   },
+  "workbench.colorTheme": "Oceanic Plus",
   "workbench.editor.showTabs": true,
   "workbench.iconTheme": "file-icons",
   "[yaml]": {
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "yaml.format.singleQuote": true
+  "yaml.format.singleQuote": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
