@@ -1,57 +1,71 @@
 {
-  "editor.fontFamily": "Fira Code, Menlo, monospace",
+  "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoSurround": "languageDefined",
+  "editor.fontFamily": "Jetbrains Mono, Menlo, monospace",
   "editor.fontLigatures": true,
-  "editor.tabSize": 2,
-  "eslint.run": "onSave",
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "git.checkoutType": "local",
-  "git.countBadge": "tracked",
-  "git.decorations.enabled": false,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-  "terminal.external.osxExec": "iTerm",
-  "workbench.colorTheme": "Oceanic Plus",
-  "workbench.iconTheme": "file-icons",
-  "workbench.colorCustomizations": {
-    "activityBarBadge.background": "#6699CC",
-    "badge.background": "#6699CC",
-    "editorError.foreground": "#EC5F67",
-    "editorWarning.foreground": "#EC5F67"
-  },
-  "window.zoomLevel": 0,
-  "gitlens.advanced.messages": {
-    "suppressShowKeyBindingsNotice": true
-  },
-  "gitlens.views.repositories.files.layout": "tree",
-  "gitlens.views.fileHistory.enabled": false,
-  "gitlens.views.lineHistory.enabled": false,
-  "[yaml]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
   "editor.lineHeight": 20,
-  "editor.wordWrap": "wordWrapColumn",
-  "[markdown]": {
-    "editor.wordWrapColumn": 80,
-    "editor.wordWrap": "wordWrapColumn",
-    "files.trimTrailingWhitespace": false,
-    "files.insertFinalNewline": false,
-    "editor.trimAutoWhitespace": false
-  },
-  "markdown.format.proseWrap": "never",
+  "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
   "editor.renderControlCharacters": false,
-  "breadcrumbs.enabled": true,
-  "liveshare.featureSet": "insiders",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "markup.inline.raw.string.markdown",
+        "settings": {
+          "foreground": "#F99157"
+        }
+      },
+      {
+        "scope": "markup.bold.markdown",
+        "settings": {
+          "foreground": "#FAC863",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "markup.italic.markdown",
+        "settings": {
+          "foreground": "#FAC863",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "markup.heading.markdown",
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "markup.quote.markdown",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "markup.list.numbered.markdown",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "markup.list.unnumbered.markdown",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "search-node-modules.path": "node_modules",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "eslint.run": "onSave",
+  "files.trimTrailingWhitespace": true,
   "files.associations": {
     "*.leex": "Eex",
     "*.symlink": "shellscript",
@@ -59,20 +73,60 @@
     "*.md": "markdown",
     "Brewfile": "shellscript"
   },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/vendor/**": true,
+    "**/yarn_cache/**": true,
+    "**/dist/**": true
+  },
+  "git.checkoutType": "local",
+  "git.countBadge": "tracked",
+  "git.decorations.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "gitlens.views.repositories.files.layout": "tree",
+  "gitlens.views.fileHistory.enabled": false,
+  "gitlens.views.lineHistory.enabled": false,
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "html.format.indentHandlebars": true,
+  "html.format.enable": false,
+  "html.format.wrapLineLength": 0,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "indentRainbow.colors": [
+    "rgba(136, 176, 215, 0.07)",
+    "rgba(252, 218, 149, 0.04)",
+    "rgba(165, 205, 160, 0.04)",
+    "rgba(197, 148, 197, 0.04)"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "javascript.suggest.autoImports": false,
-  "yaml.format.singleQuote": true,
-  "editor.autoClosingQuotes": "always",
-  "ruby.useLanguageServer": true,
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": false
-    }
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "ruby.codeCompletion": "rcodetools",
-  "ruby.intellisense": "rubyLocate",
-  "[ruby]": {
-    "editor.defaultFormatter": "rebornix.ruby"
+  "liveshare.featureSet": "insiders",
+  "[markdown]": {
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn",
+    "files.trimTrailingWhitespace": false,
+    "files.insertFinalNewline": false,
+    "editor.trimAutoWhitespace": false
   },
+  "markdown.preview.fontFamily": "'Jetbrains Mono', 'Droid Sans', 'Arial', sans-serif",
+  "markdown.preview.lineHeight": 1.8,
+  "markdown.preview.fontSize": 15,
+  "markdown.preview.openMarkdownLinks": "inEditor",
+  "peacock.affectTitleBar": false,
+  "peacock.affectStatusBar": false,
   "peacock.favoriteColors": [
     {
       "name": "Blue",
@@ -91,65 +145,60 @@
       "value": "#171f1f"
     }
   ],
-  "indentRainbow.colors": [
-    "rgba(136, 176, 215, 0.07)",
-    "rgba(252, 218, 149, 0.04)",
-    "rgba(165, 205, 160, 0.04)",
-    "rgba(197, 148, 197, 0.04)"
-  ],
-  "shellformat.path": "/usr/local/bin/shfmt",
-  "shellformat.flag": "-sr",
-  "html.format.wrapLineLength": 0,
-  "markdown.preview.fontFamily": "'Menlo', 'Droid Sans', 'Arial', sans-serif",
-  "markdown.preview.lineHeight": 1.8,
-  "markdown.preview.fontSize": 15,
-  "markdown.preview.openMarkdownLinks": "inEditor",
-  "markdown.extension.italic.indicator": "_",
-  "markdown.extension.toc.githubCompatibility": true,
-  "prettier.proseWrap": "always",
-  "editor.wordWrapColumn": 120,
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+  "peacock.keepBadgeColor": true,
+  "peacock.keepForegroundColor": true,
+  "peacock.surpriseMeOnStartup": true,
+  "peacock.surpriseMeFromFavoritesOnly": true,
+  "[plaintext]": {
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn"
   },
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.detectIndentation": false,
-  "editor.formatOnSave": true,
-  "diffEditor.ignoreTrimWhitespace": true,
-  "files.trimTrailingWhitespace": true,
-  "go.formatTool": "goimports",
   "prettier.configPath": ".prettierrc",
-  "files.watcherExclude": {
-    "**/.git/**": true,
-    "**/node_modules/**": true,
-    "**/tmp/**": true,
-    "**/vendor/**": true,
-    "**/yarn_cache/**": true,
-    "**/dist/**": true
+  "prettier.proseWrap": "always",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": false
+    }
   },
+  "ruby.useLanguageServer": true,
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "search-node-modules.path": "node_modules",
   "search.exclude": {
     "**/tmp": true,
     "**/vendor": true,
     "**/yarn_cache": true
   },
-  "go.useLanguageServer": true,
-  "html.format.indentHandlebars": true,
-  "html.format.enable": false,
-  "workbench.editor.showTabs": true,
-  "[plaintext]": {
-    "editor.wordWrapColumn": 80,
-    "editor.wordWrap": "wordWrapColumn"
-  },
+  "shellformat.path": "/usr/local/bin/shfmt",
+  "shellformat.flag": "-sr",
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.external.osxExec": "iTerm",
   "terraform.languageServer": {
     "external": true,
     "args": ["serve"]
   },
-  "peacock.keepBadgeColor": true,
-  "peacock.keepForegroundColor": true,
-  "peacock.surpriseMeOnStartup": true,
-  "peacock.surpriseMeFromFavoritesOnly": true,
-  "peacock.affectTitleBar": false,
-  "peacock.affectStatusBar": false,
-  "editor.minimap.enabled": false,
-  "go.buildOnSave": "off",
-  "ruby.format": "rubocop"
+  "window.zoomLevel": 0,
+  "workbench.colorCustomizations": {
+    "activityBarBadge.background": "#6699CC",
+    "badge.background": "#6699CC",
+    "editorError.foreground": "#EC5F67",
+    "editorWarning.foreground": "#EC5F67"
+  },
+  "workbench.colorTheme": "Oceanic Plus",
+  "workbench.editor.showTabs": true,
+  "workbench.iconTheme": "file-icons",
+  "[yaml]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "yaml.format.singleQuote": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
