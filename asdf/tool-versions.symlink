@@ -1,8 +1,9 @@
 nodejs 12.16.0
 ruby 2.7.0
-golang 1.14
-terraform 0.12.21
+golang 1.15.2
+terraform 0.14.2
 vault 1.2.3
 python 3.7.6
 elixir 1.10.2
 sentinel 0.15.6
+direnv 2.23.1

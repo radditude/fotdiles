@@ -1,6 +1,6 @@
 {
   "breadcrumbs.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
@@ -10,6 +10,7 @@
   "editor.fontFamily": "Jetbrains Mono, Menlo, monospace",
   "editor.fontLigatures": true,
   "editor.lineHeight": 20,
+  "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
   "editor.renderControlCharacters": false,
@@ -113,6 +114,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "liveshare.featureSet": "insiders",
   "[markdown]": {
     "editor.wordWrapColumn": 80,
@@ -166,23 +170,27 @@
     }
   },
   "ruby.useLanguageServer": true,
-  "[ruby]": {
-    "editor.defaultFormatter": "rebornix.ruby"
-  },
   "search-node-modules.path": "node_modules",
   "search.exclude": {
     "**/tmp": true,
     "**/vendor": true,
-    "**/yarn_cache": true
+    "**/yarn_cache": true,
+    "**/dist": true
   },
   "shellformat.path": "/usr/local/bin/shfmt",
   "shellformat.flag": "-sr",
+  "solargraph.formatting": true,
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "terminal.external.osxExec": "iTerm",
   "terraform.languageServer": {
     "external": true,
-    "args": ["serve"]
+    "args": [
+      "serve"
+    ]
   },
+  "vim.cursorStylePerMode.insert": "underline",
+  "vim.foldfix": true,
+  "vim.smartRelativeLine": true,
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "activityBarBadge.background": "#6699CC",
@@ -197,8 +205,5 @@
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "yaml.format.singleQuote": true,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  "yaml.format.singleQuote": true
 }
