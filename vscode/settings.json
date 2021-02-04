@@ -12,7 +12,7 @@
   "editor.lineHeight": 20,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "all",
+  "editor.renderWhitespace": "none",
   "editor.renderControlCharacters": false,
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {

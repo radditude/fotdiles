@@ -18,3 +18,5 @@
   new = !git init && git checkout -b main
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
