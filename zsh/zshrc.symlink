@@ -57,12 +57,11 @@ function gorun() {
 }
 # run locally installed terraform
 function local-tf() {
-  $(go env GOPATH)/bin/terraform $@
+  $HOME/src/terraform/local-tf $@
 }
 
 # Navigation ######
 alias src="cd $HOME/src"
-alias todo="cd $HOME/Dropbox/notes/todo"
 alias notes="cd $HOME/Dropbox/notes"
 alias fot="cd $DOTFILES"
 

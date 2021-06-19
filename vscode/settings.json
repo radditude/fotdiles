@@ -2,17 +2,18 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.autoClosingQuotes": "always",
   "editor.autoClosingBrackets": "always",
   "editor.autoSurround": "languageDefined",
+  "editor.cursorStyle": "line",
   "editor.fontFamily": "Jetbrains Mono, Menlo, monospace",
   "editor.fontLigatures": true,
+  "editor.insertSpaces": false,
   "editor.lineHeight": 20,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "none",
+  "editor.renderWhitespace": "all",
   "editor.renderControlCharacters": false,
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {
@@ -63,7 +64,7 @@
       }
     ]
   },
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrapColumn": 120,
   "eslint.run": "onSave",
   "files.trimTrailingWhitespace": true,
@@ -72,7 +73,8 @@
     "*.symlink": "shellscript",
     "*.erb": "html",
     "*.md": "markdown",
-    "Brewfile": "shellscript"
+    "Brewfile": "shellscript",
+    "*.yml": "yaml"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -87,12 +89,8 @@
   "git.checkoutType": "local",
   "git.countBadge": "tracked",
   "git.decorations.enabled": false,
-  "gitlens.advanced.messages": {
-    "suppressShowKeyBindingsNotice": true
-  },
   "gitlens.views.repositories.files.layout": "tree",
   "gitlens.views.fileHistory.enabled": false,
-  "gitlens.views.lineHistory.enabled": false,
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
   "html.format.indentHandlebars": true,
@@ -157,11 +155,10 @@
   "[plaintext]": {
     "editor.autoClosingQuotes": "always",
     "editor.wordWrapColumn": 80,
-    "editor.wordWrap": "wordWrapColumn"
+    "editor.wordWrap": "bounded"
   },
   "prettier.configPath": ".prettierrc",
   "prettier.proseWrap": "always",
-  "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "ruby.codeCompletion": "rcodetools",
   "ruby.format": "rubocop",
@@ -201,11 +198,18 @@
     "editorWarning.foreground": "#EC5F67"
   },
   "workbench.colorTheme": "Oceanic Plus",
-  "workbench.editor.showTabs": true,
   "workbench.iconTheme": "file-icons",
+  "workbench.startupEditor": "none",
   "[yaml]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "yaml.format.singleQuote": true
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.autoIndent": "keep",
+    "gitlens.codeLens.scopes": [
+      "document"
+    ],
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  }
 }

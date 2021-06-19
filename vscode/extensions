@@ -22,3 +22,4 @@ hashicorp.terraform
 golang.go
 castwide.solargraph
 vscodevim.vim
+redhat.vscode-commons
