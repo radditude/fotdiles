@@ -1,22 +1,23 @@
 # Stuff I don't want in VCS goes here
 [include]
-  path = ~/.gitconfig.local
+path = ~/.gitconfig.local
 [push]
-	default = simple
+default = simple
 [core]
-	editor = vim
-	excludesfile = /Users/cjhorton/.gitignore
+editor = vim
+excludesfile = /Users/cjhorton/.gitignore
+pager = less -F -X
 [hub]
-  protocol = https
+protocol = https
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = true
+diff = auto
+status = auto
+branch = auto
+ui = true
 [alias]
-  co = checkout
-  new = !git init && git checkout -b main
+co = checkout
+new = !git init && git checkout -b main
 [pull]
-	rebase = false
+rebase = false
 [init]
-	defaultBranch = main
+defaultBranch = main

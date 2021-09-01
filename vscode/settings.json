@@ -9,7 +9,6 @@
   "editor.cursorStyle": "line",
   "editor.fontFamily": "Jetbrains Mono, Menlo, monospace",
   "editor.fontLigatures": true,
-  "editor.insertSpaces": false,
   "editor.lineHeight": 20,
   "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
@@ -190,7 +189,6 @@
   "vim.cursorStylePerMode.insert": "underline",
   "vim.foldfix": true,
   "vim.smartRelativeLine": true,
-  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "activityBarBadge.background": "#6699CC",
     "badge.background": "#6699CC",
@@ -211,5 +209,7 @@
       "comments": false,
       "strings": true
     }
-  }
+  },
+  "terminal.integrated.inheritEnv": false,
+  "redhat.telemetry.enabled": false
 }
