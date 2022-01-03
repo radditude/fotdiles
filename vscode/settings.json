@@ -73,7 +73,8 @@
     "*.erb": "html",
     "*.md": "markdown",
     "Brewfile": "shellscript",
-    "*.yml": "yaml"
+    "*.yml": "yaml",
+    "*.hbs": "handlebars"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -92,7 +93,6 @@
   "gitlens.views.fileHistory.enabled": false,
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
-  "html.format.indentHandlebars": true,
   "html.format.enable": false,
   "html.format.wrapLineLength": 0,
   "[html]": {
@@ -211,5 +211,8 @@
     }
   },
   "terminal.integrated.inheritEnv": false,
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.preferences.quoteStyle": "double",
+  "workbench.editor.untitled.hint": "hidden"
 }

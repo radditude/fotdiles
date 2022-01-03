@@ -40,7 +40,7 @@ archiveold() {
   for f in "${dailies[@]}"; do
     filename=$(basename "$f")
 
-    if [[ ! "$filename" == "$today" ]]; then
+    if [[ ! "$filename" == "$today.txt" ]]; then
       mv "$NOTES_DIR/$filename" "$NOTES_DIR/archive/$filename"
       info "$filename archived"
     fi
