@@ -16,6 +16,7 @@ branch = auto
 ui = true
 [alias]
 co = checkout
+nb = checkout -b
 new = !git init && git checkout -b main
 [pull]
 rebase = false

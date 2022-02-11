@@ -49,6 +49,7 @@ alias vim=/usr/local/bin/vim
 alias be="bundle exec"
 # keep zsh from misinterpreting [ ] in rake commands
 alias rake='noglob rake'
+alias prco="hub pr checkout"
 
 # Go ##############
 # run locally installed go packages
