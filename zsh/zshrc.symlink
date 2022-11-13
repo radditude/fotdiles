@@ -102,12 +102,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf setup
-#
-# this line should really be:
-# . $(brew --prefix asdf)/asdf.sh
-# but brew --prefix takes almost half a second to run
-# which really slows down shell startup
-. /usr/local/opt/asdf/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # set up direnv via asdf
 # eval "$(asdf exec direnv hook zsh)"
