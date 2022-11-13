@@ -98,6 +98,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # asdf setup
 #
 # this line should really be:
@@ -107,7 +110,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 . /usr/local/opt/asdf/asdf.sh
 
 # set up direnv via asdf
-eval "$(asdf exec direnv hook zsh)"
+# eval "$(asdf exec direnv hook zsh)"
 
 # A shortcut for asdf managed direnv.
-direnv() { asdf exec direnv "$@"; }
+# direnv() { asdf exec direnv "$@"; }
