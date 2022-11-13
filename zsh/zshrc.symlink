@@ -14,6 +14,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 ##################
+# Brew config
+##################
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+##################
 # Local secrets config for things that need to stay out of git
 ##################
 if [[ -e ~/.localrc ]]; then
@@ -97,9 +103,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf setup
 . $(brew --prefix asdf)/libexec/asdf.sh
