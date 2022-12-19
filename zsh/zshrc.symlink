@@ -47,9 +47,6 @@ fi
 
 alias please="sudo"
 alias tf="terraform"
-# use brew-installed vim
-alias vi=/usr/local/bin/vim
-alias vim=/usr/local/bin/vim
 
 # Ruby ############
 alias be="bundle exec"
