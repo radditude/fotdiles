@@ -4,7 +4,7 @@ action=$1
 shift
 query=${@:1}
 
-NOTES_DIR=${NOTES_DIR:-"$HOME/Dropbox/notes"}
+NOTES_DIR=${NOTES_DIR:-"$HOME/.synced/notes"}
 NOTES_EDITOR="code"
 
 source $DOTFILES/functions/log
@@ -47,6 +47,7 @@ archiveold() {
   done
 
   success "all expired daily notes archived"
+  sync
 }
 
 archive() {
@@ -60,6 +61,7 @@ archive() {
   filename=$(fzf +i -q "$query")
   mv $filename archive/$filename
   success "$filename archived"
+  sync
 }
 
 today() {
@@ -113,7 +115,16 @@ makenew() {
   filename="$1.txt"
   touch $filename
   success "$filename created!"
+  sync
   $NOTES_EDITOR $filename
+}
+
+sync() {
+  cd $NOTES_DIR
+  git add .
+  git commit -m "sync notes $(date -u +%FT%TZ)"
+  git push
+  success "notes synced!"
 }
 
 [[ -z "$action" ]] || [[ "$action" == "usage" ]] && usage

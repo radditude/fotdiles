@@ -66,7 +66,7 @@ function local-tf() {
 
 # Navigation ######
 alias src="cd $HOME/src"
-alias notes="cd $HOME/Dropbox/notes"
+alias notes="cd $HOME/.synced/notes"
 alias fot="cd $DOTFILES"
 
 export SUDO_PROMPT='|- --> Password: '
