@@ -14,9 +14,13 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 ##################
-# Brew config
+# PATH config
 ##################
 
+# add $DOTFILES/bin to $PATH so everything there is executable
+export PATH="$DOTFILES/bin:$PATH"
+
+# set up brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ##################
@@ -72,13 +76,6 @@ alias fot="cd $DOTFILES"
 export SUDO_PROMPT='|- --> Password: '
 
 ##################
-# PATH config
-##################
-
-# add $DOTFILES/bin to $PATH so everything there is executable
-export PATH="$DOTFILES/bin:$PATH"
-
-##################
 # Shell options
 ##################
 
@@ -90,6 +87,14 @@ unsetopt list_beep
 # use arrow keys to navigate between words in iterm
 bindkey "[D" backward-word
 bindkey "[C" forward-word
+
+# set iTerm tab title to PWD
+DISABLE_AUTO_TITLE="true"
+
+iterm_tab_title() {
+  echo -ne "\e]0;${PWD##*/}\a"
+}
+add-zsh-hook precmd iterm_tab_title
 
 ##################
 # Integrations

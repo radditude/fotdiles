@@ -22,3 +22,5 @@ new = !git init && git checkout -b main
 rebase = false
 [init]
 defaultBranch = main
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
