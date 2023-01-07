@@ -121,8 +121,8 @@ makenew() {
 
 sync() {
   cd $NOTES_DIR
-  git add .
-  git commit -m "sync notes $(date -u +%FT%TZ)"
+  git pull
+  git commit -a -m "sync notes $(date -u +%FT%TZ)"
   git push
   success "notes synced!"
 }
