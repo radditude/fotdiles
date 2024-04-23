@@ -26,6 +26,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ##################
 # Local secrets config for things that need to stay out of git
 ##################
+
+source ~/.zprofile
+
 if [[ -e ~/.localrc ]]; then
   source ~/.localrc
 fi
@@ -50,23 +53,12 @@ fi
 ##################
 
 alias please="sudo"
-alias tf="terraform"
 
 # Ruby ############
 alias be="bundle exec"
 # keep zsh from misinterpreting [ ] in rake commands
 alias rake='noglob rake'
 alias prco="hub pr checkout"
-
-# Go ##############
-# run locally installed go packages
-function gorun() {
-  $(go env GOPATH)/bin/$@
-}
-# run locally installed terraform
-function local-tf() {
-  $HOME/src/terraform/local-tf $@
-}
 
 # Navigation ######
 alias src="cd $HOME/src"
@@ -83,6 +75,9 @@ export SUDO_PROMPT='|- --> Password: '
 unsetopt beep
 unsetopt hist_beep
 unsetopt list_beep
+
+# make glob matches fail silently like a normal shell
+setopt nonomatch
 
 # use arrow keys to navigate between words in iterm
 bindkey "[D" backward-word
@@ -106,11 +101,23 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# asdf setup
-. $(brew --prefix asdf)/libexec/asdf.sh
+##############
+# Terraform
+##############
 
-# set up direnv via asdf
-# eval "$(asdf exec direnv hook zsh)"
+# make it harder to get confused between published Terraform releases, which are
+# managed via asdf, and locally built Terraform binaries, which are managed via Go tooling
+alias terraform="$HOME/.asdf/shims/terraform"
+tf_path="$GOPATH/bin/terraform"
+alias tf=$tf_path
 
-# A shortcut for asdf managed direnv.
-# direnv() { asdf exec direnv "$@"; }
+######
+# Go
+######
+
+# read Go version information from go.mod files by default
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+
+gorun() {
+  "$GOPATH/bin/$@"
+}
