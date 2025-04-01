@@ -102,7 +102,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 ##############
 # Terraform

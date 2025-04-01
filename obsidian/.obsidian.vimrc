@@ -5,17 +5,17 @@ nmap k gk
 nmap H ^
 nmap L $
 " Quickly remove search highlights
-nmap <F9> :nohl
+nmap <F9> :nohl<CR>
 
 " Yank to system clipboard
 set clipboard=unnamed
 
 " Toggle folds
 exmap foldtoggle obcommand editor:toggle-fold
-nmap za :foldtoggle
+nmap za :foldtoggle<CR>
 
 exmap foldless obcommand editor:fold-less
-nmap zo :foldless
+nmap zo :foldless<CR>
 
 exmap foldmore obcommand editor:fold-more
-nmap zc :foldmore
+nmap zc :foldmore<CR>
